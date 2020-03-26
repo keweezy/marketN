@@ -1,0 +1,25 @@
+<section id="home-section" class="hero">    
+    <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows"
+        [showNavigationIndicators]="showNavigationIndicators">
+        <ng-template ngbSlide *ngFor="let image of images">
+            <div class="picsum-img-wrapper">
+                <img [src]="images[1]" alt="Random slide">
+            </div>
+            <div class="carousel-caption">
+                <h1>We serve Fresh Vegestables &amp; Fruits</h1>
+                <h2>We deliver organic vegetables &amp; fruits</h2>
+                <p><a href="#" class="btn btn-primary">View Details</a></p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide *ngFor="let image of images">
+            <div class="picsum-img-wrapper">
+                <img [src]="images[0]" alt="Random slide">
+            </div>
+            <div class="carousel-caption">
+                <h1>No mouse navigation</h1>
+                <h2>This carousel hides navigation arrows and indicators.</h2>
+                <p><a href="#" class="btn btn-primary">View Details</a></p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</section>
