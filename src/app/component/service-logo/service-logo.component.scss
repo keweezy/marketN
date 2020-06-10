@@ -132,8 +132,12 @@
       transition: all 0.3s ease; }
 
       .bg-color-1 {
-        background: #e4b2d6;
+        background-color: #e4b2d6;
     }
+    .bg-color-1:hover {
+background-color: blue($color: #000000);
+    }
+
     .mb-2, .my-2 {
         margin-bottom: 0.5rem !important;
     }
@@ -151,4 +155,11 @@
         display: -webkit-box !important;
         display: -ms-flexbox !important;
         display: flex !important;
+    }
+    .pos {
+        display: flow-root;
+    }
+    .container2 {
+        margin-left: 100px;
+    margin-top: 150px;
     }

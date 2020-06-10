@@ -1,29 +1,126 @@
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Vegefoods</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
+<nav class="navbar navbar-expand-md navbar-dark bg-light fixed-top ftco_navbar ftco-navbar-light"
+  id="ftco-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">VegFresh</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="oi oi-menu"></span> Menu
+    </button>
 
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown04">
-              <a class="dropdown-item" href="shop.html">Shop</a>
-              <a class="dropdown-item" href="wishlist.html">Wishlist</a>
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto nav">
+        <li class="nav-item active"><a routerLink="/home" class="nav-link">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" id="" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" routerLink='/shop'>Shop</a>
+          <!-- <div class="dropdown-menu" aria-labelledby="dropdown04" role="menu">
+            <a class="dropdown-item" >Shop</a>
+            <a class="dropdown-item" href="wishlist.html">Wishlist</a>
             <a class="dropdown-item" href="product-single.html">Single Product</a>
-            <a class="dropdown-item" href="cart.html">Cart</a>
+            <a class="dropdown-item" href="javascript:;" routerLink="/cart">Cart</a>
             <a class="dropdown-item" href="checkout.html">Checkout</a>
-          </div>
+          </div> -->
         </li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        <li class="nav-item cta cta-colored"><a href="javascript:;" routerLink="/cart" class="nav-link"><span
+              class="icon-shopping_cart "><img class="cart-img" src="../../assets/images/shopping-cart-black-shape.svg" alt="">[{{totalvalue}}]</span></a></li>
+      </ul>
+      <a class="login-font" (click)="show()" *ngIf="!isLoggedIn">Login</a>
+      <a class="login-font" (click)="getLockedOut()" *ngIf="isLoggedIn">Log Out</a>
+    </div>
 
-        </ul>
+
+    <!-- Creates the bootstrap modal where the image will appear -->
+    <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Login</h4>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control" placeholder="Username" #email required
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" placeholder="Password" #password
+                  required [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+                  <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </div>
+              <div class="form-group form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                </label>
+              </div>
+              <button type="submit" class=""
+                value="Log in">Submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()">Close</button>
+            <a class="create-link" routerLink="/createAcc" (click)="hide()" (close)= "hide()">No Account? Create Account</a>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
+
+
+
+
+<!-- <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Login</h4>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control" placeholder="Username" #email required
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" placeholder="Password" #password
+                  required [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+                  <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </div>
+              <div class="form-group form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                </label>
+              </div>
+              <button type="submit" class="" (click)="authSrv.SignIn(email.value, password.value)"
+                value="Log in">Submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()">Close</button>
+            <a class="create-link" routerLink="/createAcc" (click)="hide()" (close)= "hide()">No Account? Create Account</a>
+          </div>
+        </div>
+      </div>
+    </div> -->

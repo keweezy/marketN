@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <form action=""
+        [formGroup]= "registerForm"
+        (ngSubmit)= "onSubmit(registerForm.value)"
+    >
+        <div>
+            <label for="productName">Product Name</label>
+            <input id="productName" type="text" formControlName="productName" required>
+        </div>
+        <div>
+            <label for="imageUrl">Image Url</label>
+            <input type="text" formControlName="imageUrl" required>
+        </div>
+        <div>
+            <label for="price">Price</label>
+            <input type="number" formControlName="price" required>
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <input type="text" formControlName="description" required>
+        </div>
+        <div >
+            <label for="category">Category</label>
+            <select name="category" id="category" formControlName="category">
+                <option *ngFor= "let category of cateId" value="{{category._id}}">{{category.categoryName}}</option>
+            </select>
+        </div>
+        <div>
+            <label for="brand">Brand</label>
+            <select name="brand" id="brand">
+                <option value=""></option>
+            </select>
+        </div>
+        <div>
+            <label for="unit">Unit</label>
+            <select name="unit" id="unit">
+                <option value=""></option>
+            </select>
+        </div>
+        <div>
+
+        </div>
+
+        <button class="new-but" >Save
+            Product</button>
+    </form>
+
+
+    
+</div>

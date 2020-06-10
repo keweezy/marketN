@@ -1,0 +1,56 @@
+<app-pnavbar></app-pnavbar>
+
+
+
+<app-sidenavbar></app-sidenavbar>
+<div class="container-dash">
+    <div class="d-flx j-c-sb p-2">
+        <h3>Dashboard</h3>
+    </div>
+
+    <div class="form-posi">
+        <ul class="ul-form">
+            <li class="li"><a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"
+                    (click)="show()">Create Brand</a></li>
+            <li class="li"><a href="">Update Brand</a></li>
+            <li class="li"><a href="">Delete Brand</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>All Brands</h2>
+        <div style="padding: 20px 0;" *ngFor= "let brand of allBrands">
+            <h2>{{brand.brandName}}</h2>
+            <button (click)= "delBrand(brand.id)" >Delete</button>
+        </div>
+    </div>
+
+    <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Create Brand</h4>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="brandForm" (ngSubmit)="onSubmit(brandForm.value)">
+                        <div class="form-group">
+                            <label for="brand">Brand</label>
+                            <input type="text" formControlName="brandName" class="form-control" placeholder="Brand name"
+                                 require/>
+                        </div>
+                        <button type="submit" class="" value="Log in">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()">Close</button>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- <form action="">
+            <label for="name">Brand Name</label>
+            <input type="text" id="name">
+        </form> -->
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+  <h1>Create Account</h1>
+  <div class="formD">
+    <div style="flex: 1;">
+      <form class="go-right wrap-disp"
+        [formGroup]="registerForm"
+        
+        (ngSubmit)= "onSubmit(registerForm.value)"
+      >
+        <div>
+          <input id="firstName" formControlName="firstName" type="text" required>
+          <label for="firstName">First Name</label>
+        </div>
+        <div>
+          <input id="lastName" formControlName="lastName" type="text" required>
+          <label for="lastName">Last Name</label>
+          <p
+                *ngIf="
+                  registerForm.controls['lastName'].invalid &&
+                  registerForm.controls['lastName'].dirty
+                "
+                style="padding-top:0;"
+              >
+                <span
+                  class="error-control"
+                  *ngIf="registerForm.controls['lastName'].errors.required"
+                  >kindly enter your username</span
+                >
+                <!-- <span class="error-control" *ngIf="registerForm.controls['username'].errors.email">kindly
+                                    enter a valid email</span> -->
+              </p>
+        </div>
+        <div>
+          <input id="email" formControlName="email" type="text"  required>
+          <label for="email">Email</label>
+        </div>
+        <div>
+          <input id="passW" formControlName="password" type="password"  required>
+          <label for="passW">Password</label>
+        </div>
+        <div>
+          <input id="phone" formControlName="phone" type=" text" pattern="[0-9]*" required>
+          <label for="phone">Phone</label>
+        </div>
+        <button class="new-but" >Create
+          Account</button>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
