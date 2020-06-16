@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Angular4PaystackModule } from 'angular4-paystack';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { environment, environment_ } from '../environments/environment';
+import { environment } from '../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';

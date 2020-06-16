@@ -11,19 +11,19 @@ export const environment = {
   base_uri: 'https://markerboy-api.herokuapp.com/',
 };
 
-export const environment_ = {
-  production: false,
-  firebase:{
-    apiKey: "AIzaSyAq6Ndp8ZdBK_p8lxxhPnKm2FwJ90rpDLY",
-    authDomain: "marketboy-a51e5.firebaseapp.com",
-    databaseURL: "https://marketboy-a51e5.firebaseio.com",
-    projectId: "marketboy-a51e5",
-    storageBucket: "marketboy-a51e5.appspot.com",
-    messagingSenderId: "559878660843",
-    appId: "1:559878660843:web:51a256e6eabe353f9314ae",
-    measurementId: "G-RDF093SPRL"
-  }
-};
+// export const environment_ = {
+//   production: false,
+//   firebase:{
+//     apiKey: "AIzaSyAq6Ndp8ZdBK_p8lxxhPnKm2FwJ90rpDLY",
+//     authDomain: "marketboy-a51e5.firebaseapp.com",
+//     databaseURL: "https://marketboy-a51e5.firebaseio.com",
+//     projectId: "marketboy-a51e5",
+//     storageBucket: "marketboy-a51e5.appspot.com",
+//     messagingSenderId: "559878660843",
+//     appId: "1:559878660843:web:51a256e6eabe353f9314ae",
+//     measurementId: "G-RDF093SPRL"
+//   }
+// };
 
 
 /*
