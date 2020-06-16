@@ -98,23 +98,23 @@ export class CartService {
   addToCart(id) {
     this.productService.getProductId(id).pipe(first())
       .subscribe(res => {
-        console.log(res)
+        // console.log(res)
         this.product = res;
         // console.log(this.product);
         // var id = id;
-        console.log(this.product);
+        // console.log(this.product);
         if (id) {
-          console.log(id);
+          // console.log(id);
           var item: any = {
             product: this.product,
             quantity: 1
           };
-          console.log(this.product._id);
+          // console.log(this.product._id);
           if (!this.storage.get('cart')) {
             let cart: any = [];
 
             cart.push(item);
-            console.log('here o');
+            // console.log('here o');
 
             this.storage.set('cart', cart);
             // console.log(localStorage.getItem('cart'));
@@ -124,7 +124,7 @@ export class CartService {
             let cart: any = this.storage.get('cart');
             let index: number = -1;
 
-            console.log(item.product._id);
+            // console.log(item.product._id);
             for (var i = 0; i < cart.length; i++) {
               let item: Item = cart[i];
               // console.log(item)
@@ -133,7 +133,7 @@ export class CartService {
                 break;
               }
             }
-            console.log(item.product._id)
+            // console.log(item.product._id)
             if (index === -1) {
 
               cart.push(item);
@@ -265,7 +265,7 @@ export class CartService {
     // let quantity= 0;
     // this.increment = this.quantity;
     this.quantity += 1;
-    console.log(this.quantity);
+    // console.log(this.quantity);
     return
   }
 

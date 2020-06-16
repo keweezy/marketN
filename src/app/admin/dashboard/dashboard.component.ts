@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.showBrands();
     // this.delBrand(this.id);
-    console.log(this.allBrands)
+    // console.log(this.allBrands)
   }
 
   show() {

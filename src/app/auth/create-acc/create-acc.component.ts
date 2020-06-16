@@ -31,12 +31,12 @@ export class CreateAccComponent implements OnInit {
   }
 
   async onSubmit(user){
-    console.log(user);
+    // console.log(user);
     this.submitted = true;
     await this.authSrv.registerAccount(user)
     .pipe(first())
     .subscribe(res => {
-      console.log(res);
+      // console.log(res);
       if(res.success){
         this.toastr.success(`Registration Successful`);
         this.router.navigateByUrl('/home');

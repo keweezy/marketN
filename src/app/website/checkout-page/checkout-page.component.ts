@@ -28,46 +28,46 @@ export class CheckoutPageComponent implements OnInit {
 
 
   paymentInit() {
-    console.log('Payment initialized');
+    // console.log('Payment initialized');
   }
 
   paymentDone(ref: any) {
     this.title = 'Payment successfull';
-    console.log(this.title, ref);
-    console.log('payment enter');
+    // console.log(this.title, ref);
+    // console.log('payment enter');
   }
 
   paymentCancel() {
     this.cartSrv.loadCart();
-    console.log('payment failed');
-    console.log('closed');
+    // console.log('payment failed');
+    // console.log('closed');
   }
 
   paymentClose(){
-    console.log('page closed');
+    // console.log('page closed');
   }
 
   ngOnInit(): void {
     this.reference = `ref-${Math.ceil(Math.random() * 10e13)}`;
 
     this.cartSrv.cartLength.subscribe(totalvalue=>{
-			console.log(" got"  + totalvalue)
+			// console.log(" got"  + totalvalue)
 			this.totalvalue=totalvalue
-			console.log(this.totalvalue);
+			// console.log(this.totalvalue);
 		  });
 
     this.cartSrv.totalSum.subscribe(totalSumVal=>{
-			console.log(" have"  + totalSumVal)
+			// console.log(" have"  + totalSumVal)
 			this.totalSumVal=totalSumVal
     });
 
     this.cartSrv.netDiscount.subscribe(discountVal=>{
-      console.log("discount" + discountVal)
+      // console.log("discount" + discountVal)
       this.discountVal=discountVal
     })
     
     this.cartSrv.totalCheckout_.subscribe(totalCheck=>{
-      console.log('checkout' + totalCheck)
+      // console.log('checkout' + totalCheck)
       this.totalCheck=totalCheck
     });
 
@@ -75,7 +75,7 @@ export class CheckoutPageComponent implements OnInit {
   }
   getCart() {
     this.cartSrv.loadCart();
-    console.log('work');
+    // console.log('work');
   }
 
 }

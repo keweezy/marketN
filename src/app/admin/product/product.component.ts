@@ -97,16 +97,16 @@ export class ProductComponent implements OnInit {
   
   handleChange(event) {
     this.file = null;
-    console.log('everywhere');
-    console.log(event);
+    // console.log('everywhere');
+    // console.log(event);
     this.file = event.target.files[0];
   }
 
   //method to upload file at firebase storage
   async uploadFile() {
-    console.log('upload');
+    // console.log('upload');
     if (this.file) {
-      console.log(this.file);
+      // console.log(this.file);
       const filePath = `${this.basePath}/${this.file.name}`;    //path at which image will be stored in the firebase storage
       const snap = await this.afStorage.upload(filePath, this.file);    //upload task
       this.getUrl(snap);
@@ -125,7 +125,7 @@ export class ProductComponent implements OnInit {
     productData.imageUrl = {
       url: this.url, format: "jpg" 
     }
-    console.log(productData);
+    // console.log(productData);
     this.submitted = true;
     await this.uploadFile();
     await this.productService.createProduct(productData)
@@ -180,17 +180,17 @@ export class ProductComponent implements OnInit {
     this.productService.getProductAll()
     .pipe(first())
     .subscribe(res => {
-      console.log("nana");
-        console.log(res);
+      // console.log("nana");
+        // console.log(res);
         this.allProducts = res.data;
-        console.log(this.allProducts)
+        // console.log(this.allProducts)
       })
       return this.allProducts
     
   };
   
   async delProduct_(id) {
-    console.log(id);
+    // console.log(id);
     await this.productService.delProduct(id)
     .pipe(first())
     .subscribe(res => {
@@ -206,14 +206,14 @@ export class ProductComponent implements OnInit {
     productData.imageUrl = {
       url: this.url, format: "jpg" 
     }
-    console.log(productData);
+    // console.log(productData);
 
     this.submitted = true;
     await this.uploadFile();
     await this.productService.updateProduct(productData, this.id)
     .pipe(first())
     .subscribe( res => {
-      console.log(res)
+      // console.log(res)
       if (this.submitted = true) {
         this.toastr.success(`Product updated successfully`)
         this.updateModal = false;

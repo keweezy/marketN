@@ -85,7 +85,7 @@ export class Home2Component implements OnInit {
 
 		this.randomizedProd = this.products;
 		this.randomizedProd.splice(4);
-		console.log(this.randomizedProd);
+		// console.log(this.randomizedProd);
 	}
 
 	getNewRandom() {
@@ -108,7 +108,7 @@ export class Home2Component implements OnInit {
 			.pipe(first())
 			.subscribe(res => {
 				this.products = res.data;
-				console.log(this.products)
+				// console.log(this.products)
 				// this.doRandom()
 				this.doRandom();
 				// console.log(this.randomizedProd);

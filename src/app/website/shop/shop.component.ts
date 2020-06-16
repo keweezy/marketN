@@ -55,17 +55,17 @@ export class ShopComponent implements OnInit {
         // })
         // console.log(this.items)
         // this.allProducts;
-        console.log(this.allProducts);
+        // console.log(this.allProducts);
       }
 
       doGetAllProducts() {
         this.productService.getProductAll()
         .pipe(first())
         .subscribe(res => {
-          console.log("nana");
-            console.log(res);
+          // console.log("nana");
+            // console.log(res);
             this.allProducts = res.data;
-            console.log(this.allProducts)
+            // console.log(this.allProducts)
           })
           return this.allProducts
         
