@@ -8,12 +8,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 @Component({
-	selector: 'app-featured-prod',
-	templateUrl: './featured-prod.component.html',
-	styleUrls: ['./featured-prod.component.scss']
+  selector: 'app-home2',
+  templateUrl: './home2.component.html',
+  styleUrls: ['./home2.component.scss']
 })
-export class FeaturedProdComponent implements OnInit {
-	threeRandomProducts: any;
+export class Home2Component implements OnInit {
+  threeRandomProducts: any;
 	// randomId: {};
 	randomIds: any;
 	// public products: Product[];
@@ -25,23 +25,20 @@ export class FeaturedProdComponent implements OnInit {
 
 	randomizedProd1: any;
 
-	constructor(
-		private productService: ProductService,
+  constructor(
+    private productService: ProductService,
 		@Inject(LOCAL_STORAGE) private storage: StorageService,
 		private cartService: CartService,
 		private route: ActivatedRoute,
 		private router: Router
-	) { }
+  ) { }
 
-	ngOnInit() {
-
-		// this.products = this.productService.findAll();
-		this.getProductAll();
+  ngOnInit(): void {
+    this.getProductAll();
 		this.getNewRandom();
-	}
+  }
 
-
-	doRandom() {
+  doRandom() {
 		// if (this.products === undefined) {
 		// 	setTimeout(() => {
 		// 		this.products.map(item => {

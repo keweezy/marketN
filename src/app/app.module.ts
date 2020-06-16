@@ -15,14 +15,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ServiceLogoComponent } from './component/service-logo/service-logo.component';
-import { VegPicComponent } from './component/veg-pic/veg-pic.component';
-import { FeaturedProdComponent } from './component/featured-prod/featured-prod.component';
-import { DealOfDayComponent } from './component/deal-of-day/deal-of-day.component';
-import { TestimonialComponent } from './component/testimonial/testimonial.component';
-import { PartnerComponent } from './component/partner/partner.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { HomeComponent } from './website/home/home.component';
 import { CartComponent } from './website/cart/cart.component';
 import { CartPicComponent } from './component/cart-pic/cart-pic.component';
 import { CartListComponent } from './component/cart-list/cart-list.component';
@@ -40,6 +33,7 @@ import { PnavbarComponent } from './admin/pnavbar/pnavbar.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { UnitComponent } from './admin/unit/unit.component';
 import { ProductComponent } from './admin/product/product.component';
+import { Home2Component } from './website/home2/home2.component';
 
 
 
@@ -48,14 +42,7 @@ import { ProductComponent } from './admin/product/product.component';
     AppComponent,
     NavbarComponent,
     // FruitPicsComponent,
-    ServiceLogoComponent,
-    VegPicComponent,
-    FeaturedProdComponent,
-    DealOfDayComponent,
-    TestimonialComponent,
-    PartnerComponent,
     FooterComponent,
-    HomeComponent,
     CartComponent,
     CartPicComponent,
     CartListComponent,
@@ -71,6 +58,7 @@ import { ProductComponent } from './admin/product/product.component';
     CategoryComponent,
     UnitComponent,
     ProductComponent,
+    Home2Component,
     
 
 

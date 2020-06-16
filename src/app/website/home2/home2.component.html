@@ -1,3 +1,55 @@
+<app-navbar></app-navbar>
+
+<section class="ftco-section ftco-category ftco-no-pt">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6 order-md-last align-items-stretch d-flex">
+                        <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex">
+                            <img src="../../../assets/images/category-1.jpg" alt="alternative" class="bask-img bask-img2">
+                            <div class="text text-center" style="position: absolute;">
+                                <h2>Vegetables</h2>
+                                <p>Protect the health of every home</p>
+                                <p><a routerLink='/shop' class="btn btn-primary">Shop now</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end">
+                            <img src="../../../assets/images/category-1.jpg" alt="alternative" class="bask-img">
+                            <div class="text px-3 py-1 p-pos">
+                                <h2 class="mb-0"><a href="#">Fruits</a></h2>
+                            </div>
+                        </div>
+                        <div class="category-wrap ftco-animate img d-flex align-items-end">
+                            <img src="../../../assets/images/category-2.jpg" alt="alternative" class="bask-img">
+                            <div class="text px-3 py-1 p-pos">
+                                <h2 class="mb-0"><a href="#">Vegetables</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end">
+                    <img src="../../../assets/images/category-3.jpg" alt="alternative" class="bask-img">
+                    <div class="text px-3 py-1 p-pos">
+                        <h2 class="mb-0"><a href="#">Juices</a></h2>
+                    </div>
+                </div>
+                <div class="category-wrap ftco-animate img d-flex align-items-end">
+                    <img src="../../../assets/images/category-4.jpg" alt="alternative" class="bask-img">
+                    <div class="text px-3 py-1 p-pos">
+                        <h2 class="mb-0"><a href="#">Dried</a></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center mb-3 pb-3">
@@ -29,7 +81,7 @@
                                 </div>
                                 <div class="bottom-area d-flex px-3">
                                     <div class="m-auto d-flex">
-                                        <a routerLink="/single/{{product.id}}"
+                                        <a routerLink="/single/{{product._id}}"
                                             class="add-to-cart d-flex justify-content-center align-items-center text-center">
                                             <span><i class="ion-ios-menu"></i></span>
                                         </a>
@@ -50,3 +102,5 @@
         </div>
     </div>
 </section>
+
+<app-footer></app-footer>

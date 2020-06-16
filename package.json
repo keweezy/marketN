@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "stats": "webpack-bundle-analyzer dist/marketN/stats.json",
-    "postinstall": "ng build --aot --prod"
+    "postinstall": "ng build --aot --prod",
+    "stats": "webpack-bundle-analyzer dist/marketN/stats.json"
   },
   "private": true,
   "dependencies": {
