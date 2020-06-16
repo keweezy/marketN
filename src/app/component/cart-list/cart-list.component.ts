@@ -36,17 +36,17 @@ export class CartListComponent implements OnInit {
 		this.loadCart();
 
 		this.cartSrv.totalSum.subscribe(totalSumVal=>{
-			console.log(" have"  + totalSumVal)
+			// console.log(" have"  + totalSumVal)
 			this.totalSumVal=totalSumVal
 		});
 
 		this.cartSrv.netDiscount.subscribe(discountVal=>{
-			console.log("discount" + discountVal)
+			// console.log("discount" + discountVal)
 			this.discountVal=discountVal
 		  })
 		  
 		  this.cartSrv.totalCheckout_.subscribe(totalCheck=>{
-			console.log('checkout' + totalCheck)
+			// console.log('checkout' + totalCheck)
 			this.totalCheck=totalCheck
 		  });
 		this.getCart();
@@ -130,16 +130,16 @@ export class CartListComponent implements OnInit {
 }
 loadCart() {
     this.items = this.cartSrv.loadCart();
-    console.log(this.items);
+    // console.log(this.items);
   }
 
   remove(id) {
     this.cartSrv.remove(id);
-	console.log(this.items);
+	// console.log(this.items);
 	this.loadCart();
   }
   getCart() {
 	this.cartSrv.loadCart();
-	console.log('work');
+	// console.log('work');
 }
 }

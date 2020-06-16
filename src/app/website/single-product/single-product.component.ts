@@ -80,7 +80,7 @@ export class SingleProductComponent implements OnInit {
     //   return this.newQty
     // })
 
-    console.log(this.item)
+    // console.log(this.item)
     return this.cartService.incrementI();
     
   
@@ -88,7 +88,7 @@ export class SingleProductComponent implements OnInit {
 
 
 addToCart(id){
-  console.log(this.productID)
+  // console.log(this.productID)
   return this.cartService.addToCart(id);
 }
 

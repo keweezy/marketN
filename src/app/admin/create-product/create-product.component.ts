@@ -83,16 +83,16 @@ export class CreateProductComponent implements OnInit {
   
   handleChange(event) {
     this.file = null;
-    console.log('everywhere');
-    console.log(event);
+    // console.log('everywhere');
+    // console.log(event);
     this.file = event.target.files[0];
   }
 
   //method to upload file at firebase storage
   async uploadFile() {
-    console.log('upload');
+    // console.log('upload');
     if (this.file) {
-      console.log(this.file);
+      // console.log(this.file);
       const filePath = `${this.basePath}/${this.file.name}`;    //path at which image will be stored in the firebase storage
       const snap = await this.afStorage.upload(filePath, this.file);    //upload task
       this.getUrl(snap);
@@ -103,7 +103,7 @@ export class CreateProductComponent implements OnInit {
   private async getUrl(snap: firebase.storage.UploadTaskSnapshot) {
     const url = await snap.ref.getDownloadURL();
     this.url = url;  //store the URL
-    console.log(this.url);
+    // console.log(this.url);
   }
 
 
@@ -111,7 +111,7 @@ export class CreateProductComponent implements OnInit {
     productData.imageUrl = {
       url: this.url, format: "jpg" 
     }
-    console.log(productData);
+    // console.log(productData);
     this.submitted = true;
     await this.productService.createProduct(productData)
     .pipe(first())

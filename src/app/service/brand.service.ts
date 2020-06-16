@@ -37,7 +37,7 @@ export class BrandService {
     return this.http.post(environment.base_uri + `brands`, {brandName}, httpOptions)
     .pipe(
       map(res => {
-        console.log(res)
+        // console.log(res)
         return res;
       })
     );
@@ -53,7 +53,7 @@ export class BrandService {
         }
       )
     };
-    console.log(id);
+    // console.log(id);
     return this.http.delete(environment.base_uri + `brands/${id}`, httpOptions)
     .pipe(
       map(res => {
@@ -113,12 +113,12 @@ export class BrandService {
       )
     };
     const brandName = brand.brandName;
-    console.log(id);
+    // console.log(id);
 
     return this.http.patch(environment.base_uri + `brands/${id}`, {brandName}, httpOptions)
     .pipe(
       map(res => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
     )

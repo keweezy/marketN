@@ -77,18 +77,18 @@ export class CategoryComponent implements OnInit {
     this.catSrv.getCategorys()
     .pipe(first())
     .subscribe(res => {
-      console.log(res);
+      // console.log(res);
       this.allCat = res.data;
-      console.log(this.allCat)
+      // console.log(this.allCat)
     })
   };
   
   async delCategory(id){
-    console.log(id);
+    // console.log(id);
     await this.catSrv.deleteCategory(id)
     .pipe(first())
     .subscribe(res => {
-      console.log(res);
+      // console.log(res);
       this.toastr.success(`Category deleted successfully`)
       this.showCategories();
     }, err => {

@@ -65,7 +65,7 @@ export class ProductService {
       return this.http.get(environment.base_uri + `products`)
       .pipe(
         map(res => {
-          console.log(res);
+          // console.log(res);
           return res;
         })
       )
@@ -113,7 +113,7 @@ export class ProductService {
     return this.http.get(environment.base_uri + `products/${id}`, httpOptions)
     .pipe(
       map(res =>{
-        console.log(res)
+        // console.log(res)
         return res;
       })
     )
@@ -145,7 +145,7 @@ export class ProductService {
         }
       )
     };
-    console.log(id);
+    // console.log(id);
     return this.http.delete(environment.base_uri + `products/${id}`, httpOptions)
     .pipe(
       map(res => {
