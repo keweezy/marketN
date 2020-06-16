@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   checkLoggedIn(falsy) {
-    console.log(falsy);
+    // console.log(falsy);
     this.isLogged.next(falsy);
   }
 

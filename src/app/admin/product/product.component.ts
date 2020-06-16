@@ -11,14 +11,13 @@ import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask 
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 @Component({
-  selector: 'app-create-product',
-  templateUrl: './create-product.component.html',
-  styleUrls: ['./create-product.component.scss']
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
 })
-export class CreateProductComponent implements OnInit {
+export class ProductComponent implements OnInit {
+
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   uploadProgress: Observable<number>;
@@ -34,18 +33,12 @@ export class CreateProductComponent implements OnInit {
   cateId:any;
   brandId:any;
   unitId:any;
-  // cloudName:'dcjbgkkej';
-  // loading:any;
-  // data: any[] = [];
-  // image_id;
-  // res;
+  createModal:boolean;
+  updateModal: boolean;
+  product_:any;
+  id:any;
+  public allProducts: any;
 
-  // uploader: CloudinaryUploader = new CloudinaryUploader(
-  //   new CloudinaryOptions({
-  //     cloudName: this.cloudName,
-  //     uploadPreset: 'v4fzibyh'
-  //   })
-  // );
 
   registerForm = new FormGroup({
     productName: new FormControl('', Validators.required),
@@ -56,6 +49,7 @@ export class CreateProductComponent implements OnInit {
     brand: new FormControl('', Validators.required),
     unit: new FormControl('', Validators.required),
   });
+
   constructor(
     private toastr: ToastrService,
     private productService: ProductService,
@@ -64,19 +58,39 @@ export class CreateProductComponent implements OnInit {
     private brdSrv: BrandService,
     private unitSrv: UnitService,
     private afStorage: AngularFireStorage
-
-
-  ) {     
-    // this.getImages();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.categoryId();
     this.getBrands();
     this.getUnits();
+    this.doGetAllProducts();
+
   }
 
-  
+
+  show() {
+    this.createModal = true;
+  }
+
+
+  hide() {
+    this.createModal = false;
+  }
+
+  brandUpdateModal(id,product_) {
+    this.id = id;
+    this.product_ = product_;
+    // console.log(this.brand);
+    this.updateModal = true;
+    
+  }
+
+  hideUpdate() {
+    this.updateModal = false;
+  }
+
+
   handleFiles(event) {
     this.file = event.target.files[0];
   }
@@ -103,7 +117,7 @@ export class CreateProductComponent implements OnInit {
   private async getUrl(snap: firebase.storage.UploadTaskSnapshot) {
     const url = await snap.ref.getDownloadURL();
     this.url = url;  //store the URL
-    console.log(this.url);
+    // console.log(this.url);
   }
 
 
@@ -113,6 +127,7 @@ export class CreateProductComponent implements OnInit {
     }
     console.log(productData);
     this.submitted = true;
+    await this.uploadFile();
     await this.productService.createProduct(productData)
     .pipe(first())
     .subscribe(res => {
@@ -120,6 +135,7 @@ export class CreateProductComponent implements OnInit {
       // this.categoryId();
       if(res.success){
         this.toastr.success(`Product Created`);
+        this.createModal = false;
       }
       else {
         this.toastr.error(`Something went wrong!!!`);
@@ -158,6 +174,59 @@ export class CreateProductComponent implements OnInit {
       // console.log(this.unitId);
 
     })
+  };
+
+  doGetAllProducts() {
+    this.productService.getProductAll()
+    .pipe(first())
+    .subscribe(res => {
+      console.log("nana");
+        console.log(res);
+        this.allProducts = res.data;
+        console.log(this.allProducts)
+      })
+      return this.allProducts
+    
+  };
+  
+  async delProduct_(id) {
+    console.log(id);
+    await this.productService.delProduct(id)
+    .pipe(first())
+    .subscribe(res => {
+      this.toastr.success(`Product deleted successfully`)
+      this.doGetAllProducts();
+    }, err => {
+      this.toastr.error('Something went wrong!!!');
+    }
+    )
+  };
+
+  async onSubmitUpdate(productData) {
+    productData.imageUrl = {
+      url: this.url, format: "jpg" 
+    }
+    console.log(productData);
+
+    this.submitted = true;
+    await this.uploadFile();
+    await this.productService.updateProduct(productData, this.id)
+    .pipe(first())
+    .subscribe( res => {
+      console.log(res)
+      if (this.submitted = true) {
+        this.toastr.success(`Product updated successfully`)
+        this.updateModal = false;
+        this.doGetAllProducts();
+      } else {
+        this.toastr.error(`Something went wrong`)
+      }
+    },err => {
+      this.toastr.error(`${err.error.message}`);
+        this.submitted = false;
+    } )
+
   }
+
 
 }

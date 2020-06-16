@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
 
 <div class="hero-wrap hero-bread" style="background-image: url('images/bg_1.jpg');">
-  <img src="../../../assets/images/image_4.jpg" alt="photo" class="img-shop">
+  <img src="../../../assets/images/about.jpg" alt="photo" class="img-header">
   <div class="container">
     <div class="row no-gutters slider-text align-items-center justify-content-center">
-      <div class="col-md-9 ftco-animate text-center">
+      <div class="col-md-9 ftco-animate text-center product-header">
         <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Products</span></p>
         <h1 class="mb-0 bread">Products</h1>
       </div>
@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<section class="ftco-section">
+<section class="ftco-section" style="margin-top: 50px;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10 mb-5 text-center">
@@ -27,14 +27,14 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-lg-3 ftco-animate"
-        *ngFor="let product of allProducts">
+        *ngFor="let product of allProducts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
         <div class="product">
-          <a href="#" class="img-prod"><img class="img-fluid" src="{{product.photo}}" alt="photo">
+          <a href="#" class="img-prod"><img class="img-fluid" src="{{product.imageUrl}}" alt="photo">
             <span class="status">1%</span>
             <div class="overlay"></div>
           </a>
           <div class="text py-3 pb-4 px-3 text-center">
-            <h3><a href="#">{{product.name}}</a></h3>
+            <h3><a href="#">{{product.productName}}</a></h3>
             <div class="d-flex">
               <div class="pricing">
                 <p class="price"><span class="mr-2 price-dc">$120.00</span><span
@@ -44,11 +44,11 @@
 
             <div class="bottom-area d-flex px-3">
               <div class="m-auto d-flex">
-                <a routerLink="/single/{{product.id}}"
+                <a routerLink="/single/{{product._id}}"
                   class="add-to-cart d-flex justify-content-center align-items-center text-center">
                   <span><i class="ion-ios-menu"></i></span>
                 </a>
-                <a (click)=addToCart(product.id) class="buy-now d-flex justify-content-center align-items-center mx-1">
+                <a (click)=addToCart(product._id) class="buy-now d-flex justify-content-center align-items-center mx-1">
                   <span><img src="../../../assets/images/shopping-cart-black-shape.svg" alt="alternative"
                       class="cart-img"></span>
                   <!-- <i class="fas fa-shopping-cart"></i> -->
@@ -71,12 +71,24 @@
             <li class="active"><span>1</span></li>
             <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li> -->
-            <!-- <li><a href="#">5</a></li> -->
-            <!-- <li><ngb-pagination [collectionSize]="products.length" [(page)]="page" [maxSize]="5" [rotate]="true"
-              [ellipses]="false" [boundaryLinks]="true" class="block-27"></ngb-pagination></li> -->
-            
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li> -->
+            <!-- <ngb-pagination [collectionSize]="products.length" [(page)]="page" [maxSize]="5" [rotate]="true"
+              [ellipses]="false" [boundaryLinks]="true" ></ngb-pagination> -->
+            <li>
+              <ngb-pagination [collectionSize]="allProducts?.length" [(page)]="page" [maxSize]="5" [rotate]="true"
+                [ellipses]="false" [boundaryLinks]="true" class="block-27"></ngb-pagination>
+            </li>
+
           </ul>
+
+          <!-- <table>
+            <tr *ngFor="let product of allProducts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+              <td>{{product.name}}</td>
+            </tr>
+          </table>
+          <ngb-pagination [collectionSize]="items.length" [(page)]="page" [maxSize]="5" [rotate]="true"
+            [ellipses]="false" [boundaryLinks]="true"></ngb-pagination> -->
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+
 <app-pnavbar></app-pnavbar>
 
 
@@ -7,21 +8,22 @@
     <div class="form-posi">
         <ul class="ul-form">
             <li class="li"><a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#"
-                    (click)="show()" class="createBrand">Create Brand</a></li>
-            <!-- <li class="li"><a href="">Update Brand</a></li>
-            <li class="li"><a href="">Delete Brand</a></li> -->
+                    (click)="show()" class="createBrand">Create Unit</a></li>
+            <!-- <li class="li"><a href="">Update Brand</a></li> -->
+            <!-- <li class="li"><a href="">Delete Brand</a></li> -->
         </ul>
     </div>
 
-    <h2 class="allBrands">All Brands</h2>
-    <div class="disp-items">
-        <div *ngFor="let brand of allBrands" class="listItems">
-            <div>
-                <h2>{{brand.brandName}}</h2>
-                <button (click)="delBrand(brand.id)">Delete</button>
-                <button (click)= "brandUpdateModal(brand._id,brand.brandName)">Update Brand</button>
-            </div>
+    <div>
+        <h2 class="allBrands">All Units</h2>
+        <div class="disp-items">
 
+            <div style="padding: 20px 0;" *ngFor="let unit of allUnit" class="listItems"> 
+                <h2>{{unit.unitName}}</h2>
+                <button (click)="delUnit(unit.id)">Delete</button>
+                <button (click)= "brandUpdateModal(unit._id, unit.unitName)">Update Unit</button>
+    
+            </div>
         </div>
     </div>
 
@@ -30,13 +32,13 @@
         <div class="modal-dialog ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Create Brand</h4>
+                    <h4 class="modal-title" id="myModalLabel">Create Unit</h4>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="brandForm" (ngSubmit)="onSubmit(brandForm.value)">
+                    <form [formGroup]="unitForm" (ngSubmit)="onSubmit(unitForm.value)">
                         <div class="form-group">
-                            <label for="brand">Brand</label>
-                            <input type="text" formControlName="brandName" class="form-control" placeholder="Brand Name" ng-reflect-name="Brand Name"
+                            <label for="brand">Unit</label>
+                            <input type="text" formControlName="unitName" class="form-control" placeholder="Unit name"
                                 require />
                         </div>
                         <button type="submit" class="" value="Log in">Submit</button>
@@ -44,6 +46,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()">Close</button>
+
                 </div>
             </div>
         </div>
@@ -51,17 +54,17 @@
 
 
     <div [style.display]="updateModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
-        aria-labelledby="myModalLabel" aria-hidden="true">
+        aria-labelledby="myModalLabel" aria-hidden="true" >
         <div class="modal-dialog ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Update Brand</h4>
+                    <h4 class="modal-title" id="myModalLabel">Update Unit</h4>
                 </div>
-                <div class="modal-body">
-                    <form [formGroup]="brandForm" (ngSubmit)="onSubmitUpdate(brandForm.value)">
+                <div class="modal-body"  *ngIf="updateModal">
+                    <form [formGroup]="unitForm" (ngSubmit)="onSubmitUpdate(unitForm.value)">
                         <div class="form-group">
-                            <label for="brand">Brand</label>
-                            <input type="text" formControlName="brandName" class="form-control" placeholder="{{brand}}"
+                            <label for="brand">Unit</label>
+                            <input type="text" formControlName="unitName" class="form-control" placeholder="{{unit}}"
                                 require />
                         </div>
                         <button type="submit" class="" value="Log in">Submit</button>

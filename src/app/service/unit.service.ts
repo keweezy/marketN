@@ -8,10 +8,8 @@ import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 @Injectable({
   providedIn: 'root'
 })
-export class BrandService {
-
+export class UnitService {
   private accessToken:any;
-  data:any;
 
 
   constructor(
@@ -20,11 +18,9 @@ export class BrandService {
   ) { 
     this.accessToken = this.storage.get('access_token');
 
-
   }
 
-
-  createBrand(brand): Observable<any> {
+  createUnit(unit): Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -33,18 +29,16 @@ export class BrandService {
         }
       )
     };
-    const brandName = brand.brandName;
-    return this.http.post(environment.base_uri + `brands`, {brandName}, httpOptions)
+    const unitName = unit.unitName;  
+    return this.http.post(environment.base_uri + `units`, {unitName}, httpOptions)
     .pipe(
-      map(res => {
-        console.log(res)
+      map(res=> {
         return res;
       })
-    );
-
+    )
   }
 
-  deleteBrand(id):Observable<any> {
+  getUnits():Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -53,8 +47,7 @@ export class BrandService {
         }
       )
     };
-    console.log(id);
-    return this.http.delete(environment.base_uri + `brands/${id}`, httpOptions)
+    return this.http.get(environment.base_uri + `units`, httpOptions)
     .pipe(
       map(res => {
         return res;
@@ -62,7 +55,7 @@ export class BrandService {
     )
   }
 
-  getBrands(): Observable<any>{
+  deleteUnit(id):Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -71,58 +64,52 @@ export class BrandService {
         }
       )
     };
-    return this.http.get(environment.base_uri + `brands`, httpOptions)
-    .pipe(
-      map(
-        res=> {
-          // console.log(res);
-          return res;
-        }
-      )
-    )
-  }
-
-  // updateBrandId(brand, id): Observable<any> {
-  //   const httpOptions = {
-  //     headers: new HttpHeaders(
-  //       {
-  //         'Content-Type': 'application/json',
-  //         'Authorization': `Bearer ${this.accessToken}`,
-  //       }
-  //     )
-  //   };
-  //   const brandName = brand.brandName;
-  //   console.log(id);
-  //   return this.http.patch(environment.base_uri + `brands/${id}`, {brandName}, httpOptions)
-  //   .pipe(
-  //     map(res => {
-  //       console.log('rigth here')
-  //       console.log(res);
-  //       return res;
-  //     })
-  //   )
-  // }
-
-  updateBrandId(brand, id): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders(
-        {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.accessToken}`,
-        }
-      )
-    };
-    const brandName = brand.brandName;
-    console.log(id);
-
-    return this.http.patch(environment.base_uri + `brands/${id}`, {brandName}, httpOptions)
+    return this.http.delete(environment.base_uri + `units/${id}`, httpOptions)
     .pipe(
       map(res => {
-        console.log(res);
         return res;
       })
     )
   }
+
+  updateUnitId(unit, id): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.accessToken}`,
+        }
+      )
+    };
+    const unitName = unit.unitName;   
+    return this.http.patch(environment.base_uri + `units/${id}`, {unitName}, httpOptions)
+    .pipe(
+      map(res => {
+        // console.log(res);
+        return res;
+      })
+    )
+  }
+
+  getUnitId(id):Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.accessToken}`,
+        }
+      )
+    };
+    return this.http.get(environment.base_uri + `units/${id}`, httpOptions)
+    .pipe(
+      map(res => {
+        // console.log(res)
+        return res;
+      })
+    )
+  }
+
 
 
 }
+

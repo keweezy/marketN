@@ -6,6 +6,7 @@ import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { CartService} from '../../service/cart.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Subscription } from 'rxjs';
+import { first } from 'rxjs/operators';
 // import { map} from 'rxjs/operators';
 
 
@@ -16,43 +17,54 @@ import { Subscription } from 'rxjs';
 })
 export class SingleProductComponent implements OnInit {
 
-  public products: Product[];
+  // public products: Product[];
   // public items: Item[]=[];
   // public total : number = 0;
   productID: any;
   public item: any;
   product_list:any;
   newQty:any;
+  products: any;
 
 
   constructor(
     private productService: ProductService,
 		@Inject(LOCAL_STORAGE) private storage: StorageService,
     private cartService: CartService,
-    private route: ActivatedRoute
-    , private router: Router
+    private route: ActivatedRoute,
+    private router: Router
   ) {
-    // this.productID = "p02";
+    // this.productID = "5ed7052edf7f9400042b58bd";
     this.productID = this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit(): void {
 
 
-    this.products = this.productService.findAll();
-    console.log(this.products);
-    this.products.map((item => {
-      if (item.id === this.productID) {
-        this.item = item;
-      }
-    }))
+    // this.products = this.productService.findAll();
+    // console.log(this.products);
+    // this.products.map((item => {
+    //   if (item.id === this.productID) {
+    //     this.item = item;
+    //   }
+    // }))
+
+    this.productService.getProductAll().pipe(first())
+    .subscribe(res => {
+      this.products = res.data;
+      this.products.map(item => {
+        if(item._id=== this.productID){
+          this.item = item;
+          // console.log(this.item)
+        }
+      })
+    })
     
     // this.products.forEach(item => {
     //   if (item.id === this.productID) {
     //     this.item = item;
     //   }
     // })
-    console.log(this.item);
 
     // this.addToCart(this.productID);
 

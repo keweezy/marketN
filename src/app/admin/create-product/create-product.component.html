@@ -1,17 +1,19 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-    <form action=""
-        [formGroup]= "registerForm"
-        (ngSubmit)= "onSubmit(registerForm.value)"
-    >
+    <form [formGroup]="registerForm">
         <div>
             <label for="productName">Product Name</label>
             <input id="productName" type="text" formControlName="productName" required>
         </div>
         <div>
             <label for="imageUrl">Image Url</label>
-            <input type="text" formControlName="imageUrl" required>
+            <!-- <input type="text" formControlName="imageUrl" required> -->
+            <!-- <input type="file" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera"> -->
+            <!-- <input type="file" adFileSelect [uploader]="uploader" multiple accept="image/*;capture=camera"> -->
+            <!-- <button [disabled]="loading" (click)="upload()" class="btn btn-success mt-3">Upload</button> -->
+            <input type="file" accept=".png,.jpg" (change)="handleChange($event)" formControlName="imageUrl"/>
+            <button (click)="uploadFile()">Upload</button>
         </div>
         <div>
             <label for="price">Price</label>
@@ -21,32 +23,32 @@
             <label for="description">Description</label>
             <input type="text" formControlName="description" required>
         </div>
-        <div >
+        <div>
             <label for="category">Category</label>
-            <select name="category" id="category" formControlName="category">
-                <option *ngFor= "let category of cateId" value="{{category._id}}">{{category.categoryName}}</option>
+            <select name="category" id="category" formControlName="category" required>
+                <option *ngFor="let category of cateId" value="{{category._id}}">{{category.categoryName}}</option>
             </select>
         </div>
         <div>
             <label for="brand">Brand</label>
-            <select name="brand" id="brand">
-                <option value=""></option>
+            <select name="brand" id="brand" formControlName="brand">
+                <option value="{{brand._id}}" *ngFor="let brand of brandId">{{brand.brandName}}</option>
             </select>
         </div>
         <div>
             <label for="unit">Unit</label>
-            <select name="unit" id="unit">
-                <option value=""></option>
+            <select name="unit" id="unit" formControlName="unit">
+                <option value="{{unit._id}}" *ngFor="let unit of unitId">{{unit.unitName}}</option>
             </select>
         </div>
         <div>
 
         </div>
 
-        <button class="new-but" >Save
+        <button class="new-but" (click)="onSubmit(registerForm.value)">Save
             Product</button>
     </form>
 
 
-    
+
 </div>

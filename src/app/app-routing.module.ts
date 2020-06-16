@@ -8,6 +8,9 @@ import { SingleProductComponent } from './website/single-product/single-product.
 import { ShopComponent } from './website/shop/shop.component';
 import { CreateProductComponent } from './admin/create-product/create-product.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { CategoryComponent } from './admin/category/category.component';
+import { UnitComponent } from './admin/unit/unit.component';
+import { ProductComponent } from './admin/product/product.component';
 
 
 
@@ -21,6 +24,9 @@ const routes: Routes = [
   {path: 'shop', component:ShopComponent},
   {path:'createProduct', component:CreateProductComponent},
   {path: 'dashboard', component:DashboardComponent},
+  {path: 'category', component:CategoryComponent},
+  {path: 'unit', component:UnitComponent},
+  {path: 'product', component:ProductComponent}
 
 ];
 

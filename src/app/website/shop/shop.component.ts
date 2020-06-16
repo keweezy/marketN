@@ -13,16 +13,17 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  public products: Product[]
+  // public products: Product[]
   page = 1;
   pageSize =8;
-  // items = [];
+  items = [];
   // singleItem:any;
   // public item: any;
   // productID:any;
   // singItem:any;
   public allProducts: any;
   id:any
+  // product=[];
   
 
 
@@ -39,6 +40,9 @@ export class ShopComponent implements OnInit {
       
       // this.allProducts
       // console.log(this.allProducts);
+    //   for(let i = 1; i <= 100; i++){
+    //     this.product.push({Name: 'Shop ' + i});
+    //  }
     }
     
     ngOnInit(): void {
@@ -51,7 +55,7 @@ export class ShopComponent implements OnInit {
         // })
         // console.log(this.items)
         // this.allProducts;
-        // console.log(this.allProducts);
+        console.log(this.allProducts);
       }
 
       doGetAllProducts() {
@@ -63,7 +67,7 @@ export class ShopComponent implements OnInit {
             this.allProducts = res.data;
             console.log(this.allProducts)
           })
-          // return this.allProducts
+          return this.allProducts
         
       }
       

@@ -4,7 +4,9 @@ import { ProductService } from '../../app/service/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Item } from '../../app/entities/item.entity';
 import { Product } from '../../app/entities/product.entity';
-import {Subject} from 'rxjs';
+import { Subject } from 'rxjs';
+import { first } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,78 +15,153 @@ export class CartService {
   discount: any;
   items: Item[] = [];
   total: number = 0;
-  products: Product[] = [];
-  increment:any;
+  // products: Product[] = [];
+  product: any;
+  increment: any;
   id: any;
   quantity: number = 1;
   public cartLength = new Subject();
   public totalSum = new Subject();
   public totalCheckout_ = new Subject();
   public netDiscount = new Subject();
-  public increment_ = new Subject ();
+  public increment_ = new Subject();
   public isLoggedIn = new Subject();
   public isLoggedOut = new Subject();
 
-  constructor(private productService: ProductService, @Inject(LOCAL_STORAGE) private storage: StorageService,) {
+  constructor(private productService: ProductService, @Inject(LOCAL_STORAGE) private storage: StorageService, ) {
     // this.sendcartLength(this.storage.get('cart').length);
     this.loadCart();
   }
 
+  // addToCart(id) {
+  //   this.productService.getProductId(id).pipe(first())
+  //   .subscribe(res => {
+  //     console.log(res)
+  //     this.product = res;
+  //     console.log(this.product)
+  //   })
+  //   console.log(this.product);
+  //   var id = id;
+  //   if (id) {
+  //     var item: any = {
+  //       product: this.productService.find(id),
+  //       quantity: 1
+  //     };
+
+  //     if (!this.storage.get('cart')) {
+  //       let cart: any = [];
+
+  //       cart.push(item);
+
+  //       this.storage.set('cart', cart);
+  //       // console.log(localStorage.getItem('cart'));
+  //       this.sendcartLength(this.storage.get('cart').length);
+  //       // this._cartLength$.next(this.storage.get('cart').length);
+  //     } else {
+  //       let cart: any = this.storage.get('cart');
+  //       let index: number = -1;
+
+  //       for (var i = 0; i < cart.length; i++) {
+  //         let item: Item = cart[i];
+  //         // console.log(item);
+  //         if (item.product.id == id) {
+  //           index = i;
+  //           break;
+  //         }
+  //       }
+  //       if (index == -1) {
+
+  //         cart.push(item);
+
+  //         this.storage.set('cart', cart);
+  //         this.sendcartLength(this.storage.get('cart').length);
+  //         // this._cartLength$.next(this.storage.get('cart').length);
+  //       } else {
+
+  //         let item = cart[index];
+  //         item['quantity'] += 1;
+  //         cart[index] = item;
+  //         this.storage.set('cart', cart);
+  //         this.sendcartLength(this.storage.get('cart').length);
+
+
+  //         // this._cartLength$.next(this.storage.get('cart').length);
+  //       }
+  //     }
+  //     this.loadCart();
+  //   } else {
+  //     this.loadCart();
+  //   }
+  // }
+
+
   addToCart(id) {
-    
-    // console.log(id);
-    var id = id;
-    if (id) {
-      var item: any = {
-        product: this.productService.find(id),
-        quantity: 1
-      };
+    this.productService.getProductId(id).pipe(first())
+      .subscribe(res => {
+        console.log(res)
+        this.product = res;
+        // console.log(this.product);
+        // var id = id;
+        console.log(this.product);
+        if (id) {
+          console.log(id);
+          var item: any = {
+            product: this.product,
+            quantity: 1
+          };
+          console.log(this.product._id);
+          if (!this.storage.get('cart')) {
+            let cart: any = [];
 
-      if (!this.storage.get('cart')) {
-        let cart: any = [];
+            cart.push(item);
+            console.log('here o');
 
-        cart.push(item);
+            this.storage.set('cart', cart);
+            // console.log(localStorage.getItem('cart'));
+            this.sendcartLength(this.storage.get('cart').length);
+            // this._cartLength$.next(this.storage.get('cart').length);
+          } else {
+            let cart: any = this.storage.get('cart');
+            let index: number = -1;
 
-        this.storage.set('cart', cart);
-        // console.log(localStorage.getItem('cart'));
-        this.sendcartLength(this.storage.get('cart').length);
-        // this._cartLength$.next(this.storage.get('cart').length);
-      } else {
-        let cart: any = this.storage.get('cart');
-        let index: number = -1;
+            console.log(item.product._id);
+            for (var i = 0; i < cart.length; i++) {
+              let item: Item = cart[i];
+              // console.log(item)
+              if (item.product._id === id) {
+                index = i;
+                break;
+              }
+            }
+            console.log(item.product._id)
+            if (index === -1) {
 
-        for (var i = 0; i < cart.length; i++) {
-          let item: Item = cart[i];
-          // console.log(item);
-          if (item.product.id == id) {
-            index = i;
-            break;
+              cart.push(item);
+
+              this.storage.set('cart', cart);
+              this.sendcartLength(this.storage.get('cart').length);
+              // this._cartLength$.next(this.storage.get('cart').length);
+            } else {
+
+              let item = cart[index];
+              item['quantity'] += 1;
+              cart[index] = item;
+              this.storage.set('cart', cart);
+              this.sendcartLength(this.storage.get('cart').length);
+
+
+              // this._cartLength$.next(this.storage.get('cart').length);
+            }
           }
-        }
-        if (index == -1) {
-
-          cart.push(item);
-
-          this.storage.set('cart', cart);
-          this.sendcartLength(this.storage.get('cart').length);
-          // this._cartLength$.next(this.storage.get('cart').length);
+          this.loadCart();
         } else {
-
-          let item = cart[index];
-          item['quantity'] += 1;
-          cart[index] = item;
-          this.storage.set('cart', cart);
-          this.sendcartLength(this.storage.get('cart').length);
-          
-
-          // this._cartLength$.next(this.storage.get('cart').length);
+          this.loadCart();
         }
       }
-      this.loadCart();
-    } else {
-      this.loadCart();
-    }
+      );
+
   }
+
   loadCart(): any {
     if (!this.storage.get('cart')) {
       this.storage.set('cart', []);
@@ -105,7 +182,7 @@ export class CartService {
       });
       this.total += item.product.price * item['quantity'];
       this.discount = this.total * 0.01;
-      this.increment= item['quantity'];
+      this.increment = item['quantity'];
     }
     this.sendTotalSum(this.total);
     // console.log(localStorage.getItem('cart').length);
@@ -144,54 +221,52 @@ export class CartService {
     this.loadCart();
     // console.log(cart);
     return this.items
-    
+
   }
 
   // clearCart() {
   //   this.removeItem.next(this.remove);
   // }
 
-  sendcartLength(totalVal)
+  sendcartLength(totalVal) {
+    // console.log(totalVal);
 
-    { 
-      // console.log(totalVal);
-      
-      
-      this.cartLength.next(totalVal)
-    }
+
+    this.cartLength.next(totalVal)
+  }
 
   sendLoginStatus(falsy) {
     // console.log(falsy);
     this.isLoggedIn.next(falsy);
   }
 
-  sendLogOutStatus(leave){
+  sendLogOutStatus(leave) {
     // console.log(leave);
     this.isLoggedOut.next(leave);
   }
 
 
-    sendTotalSum(totalSumVal) {
-      // console.log(totalSumVal);
-      this.totalSum.next(totalSumVal)
-    }
+  sendTotalSum(totalSumVal) {
+    // console.log(totalSumVal);
+    this.totalSum.next(totalSumVal)
+  }
 
-    checkoutTotal(totalCheck) {
-      // console.log(totalCheck);
-      this.totalCheckout_.next(totalCheck);
+  checkoutTotal(totalCheck) {
+    // console.log(totalCheck);
+    this.totalCheckout_.next(totalCheck);
 
-    }
-    netDiscount_(discountVal){
-      // console.log(discountVal);
-      this.netDiscount.next(discountVal);
-    }
+  }
+  netDiscount_(discountVal) {
+    // console.log(discountVal);
+    this.netDiscount.next(discountVal);
+  }
 
-    incrementI(){
-      // let quantity= 0;
-      // this.increment = this.quantity;
-      this.quantity += 1;
-      console.log(this.quantity);
-      return
-    }
-    
+  incrementI() {
+    // let quantity= 0;
+    // this.increment = this.quantity;
+    this.quantity += 1;
+    console.log(this.quantity);
+    return
+  }
+
 }
