@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "stats": "webpack-bundle-analyzer dist/marketN/stats.json",
     "postinstall": "ng build --aot --prod"
-
   },
   "private": true,
   "dependencies": {
@@ -43,9 +43,9 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.2",
     "@angular/language-service": "~9.0.1",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -57,7 +57,8 @@
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
-    "typescript": "~3.7.5"
+    "typescript": "~3.7.5",
+    "webpack-bundle-analyzer": "^3.8.0"
   },
   "engines": {
     "node": "~12.16.0",
