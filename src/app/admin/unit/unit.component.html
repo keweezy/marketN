@@ -16,9 +16,10 @@
 
     <div>
         <h2 class="allBrands">All Units</h2>
+        <hr>
         <div class="disp-items">
 
-            <div style="padding: 20px 0;" *ngFor="let unit of allUnit" class="listItems"> 
+            <div *ngFor="let unit of allUnit" class="listItems"> 
                 <h2>{{unit.unitName}}</h2>
                 <button (click)="delUnit(unit.id)">Delete</button>
                 <button (click)= "brandUpdateModal(unit._id, unit.unitName)">Update Unit</button>

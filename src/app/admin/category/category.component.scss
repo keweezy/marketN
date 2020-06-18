@@ -1,12 +1,44 @@
 
 
-
-
 .container-dash{
-    position: relative;
     margin-left: 250px;
-    border: solid;
     overflow: hidden;
+    position: relative;
+    bottom: 374px;
+}
+.allBrands{
+    position: relative;
+    margin-left: 300px;
+    font-size: 50px;
+    margin-bottom: 48px;
+}
+.createBrand{
+    position: absolute;
+    font-size: 22px;
+    left: 550px;
+    color: darkseagreen;
+}
+
+button {
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 13px;
+    background: #e8f7e8;
+    border-radius: 10px;
+    font-family: serif;
+    border: 0;
+}
+
+
+
+.disp-items{
+    display: flex;
+    flex-flow: wrap;
+}
+
+.listItems{
+    padding: 20px 30px;
+
 }
 
 .ul-form{
