@@ -194,10 +194,10 @@
                         </div>
                         <button type="submit" class="" value="Log in">Save</button>
                     </form> -->
-                    <form [formGroup]="registerForm" class="form-group">
+                    <form [formGroup]="updateRegisterForm" class="form-group">
                         <div>
                             <label for="productName">Product Name</label>
-                            <input id="productName" type="text" formControlName="productName" required>
+                            <input id="productName" type="text" formControlName="productName">
                         </div>
                         <div>
                             <label for="imageUrl">Image Url</label>
@@ -206,20 +206,20 @@
                             <!-- <input type="file" adFileSelect [uploader]="uploader" multiple accept="image/*;capture=camera"> -->
                             <!-- <button [disabled]="loading" (click)="upload()" class="btn btn-success mt-3">Upload</button> -->
                             <input type="file" accept=".png,.jpg" (change)="handleChange($event)"
-                                formControlName="imageUrl" />
+                                formControlName="imageUrl">
                             <button (click)="uploadFile()">Upload</button>
                         </div>
                         <div>
                             <label for="price">Price</label>
-                            <input type="number" formControlName="price" required>
+                            <input type="number" formControlName="price" >
                         </div>
                         <div>
                             <label for="description">Description</label>
-                            <input type="text" formControlName="description" required>
+                            <input type="text" formControlName="description">
                         </div>
                         <div>
                             <label for="category">Category</label>
-                            <select name="category" id="category" formControlName="category" required>
+                            <select name="category" id="category" formControlName="category">
                                 <option *ngFor="let category of cateId" value="{{category._id}}">
                                     {{category.categoryName}}</option>
                             </select>
@@ -240,7 +240,7 @@
 
                         </div>
 
-                        <button class="new-but" (click)="onSubmitUpdate(registerForm.value)">Save
+                        <button class="new-but" (click)="onSubmitUpdate(updateRegisterForm.value)">Save
                             Product</button>
                     </form>
                 </div>

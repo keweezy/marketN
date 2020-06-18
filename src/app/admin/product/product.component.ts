@@ -38,6 +38,7 @@ export class ProductComponent implements OnInit {
   product_:any;
   id:any;
   public allProducts: any;
+  newData:any;
 
 
   registerForm = new FormGroup({
@@ -48,6 +49,15 @@ export class ProductComponent implements OnInit {
     category: new FormControl('', Validators.required),
     brand: new FormControl('', Validators.required),
     unit: new FormControl('', Validators.required),
+  });
+  updateRegisterForm = new FormGroup({
+    productName: new FormControl(''),
+    imageUrl: new FormControl(''),
+    price: new FormControl(''),
+    description: new FormControl(''),
+    category: new FormControl(''),
+    brand: new FormControl(''),
+    unit: new FormControl(''),
   });
 
   constructor(
@@ -206,14 +216,19 @@ export class ProductComponent implements OnInit {
     productData.imageUrl = {
       url: this.url, format: "jpg" 
     }
-    // console.log(productData);
+    
+    if(productData===null){
+      this.newData = productData.value;
+      console.log(this.newData);
+      console.log(productData);
+    }
 
     this.submitted = true;
-    await this.uploadFile();
+    // await this.uploadFile();
     await this.productService.updateProduct(productData, this.id)
     .pipe(first())
     .subscribe( res => {
-      // console.log(res)
+      console.log(res)
       if (this.submitted = true) {
         this.toastr.success(`Product updated successfully`)
         this.updateModal = false;
