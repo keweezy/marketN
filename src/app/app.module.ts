@@ -16,9 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { CartComponent } from './website/cart/cart.component';
-import { CartPicComponent } from './component/cart-pic/cart-pic.component';
-import { CartListComponent } from './component/cart-list/cart-list.component';
+import { CartListComponent } from './website/cart-page/cart-list.component';
 import { ProductService } from './service/product.service';
 import { CheckoutPageComponent } from './website/checkout-page/checkout-page.component';
 // import { FruitPicsComponent } from './component/fruit-pics/fruit-pics.component';
@@ -43,8 +41,6 @@ import { Home2Component } from './website/home2/home2.component';
     NavbarComponent,
     // FruitPicsComponent,
     FooterComponent,
-    CartComponent,
-    CartPicComponent,
     CartListComponent,
     CheckoutPageComponent,
     // FruitPicsComponent,

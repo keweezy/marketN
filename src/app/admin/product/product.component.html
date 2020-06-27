@@ -76,7 +76,7 @@
                     </div>
                     <div class="button-class">
                         <button (click)="delProduct_(product._id)">Delete</button>
-                    <button (click)= "brandUpdateModal(product._id,product.productName)">Update Product</button>
+                    <button (click)= "brandUpdateModal(product._id,product.productName)" data-dismiss="modal" >Update Product</button>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@
                             <!-- <button [disabled]="loading" (click)="upload()" class="btn btn-success mt-3">Upload</button> -->
                             <input type="file" accept=".png,.jpg" (change)="handleChange($event)"
                                 formControlName="imageUrl" />
-                            <button (click)="uploadFile()">Upload</button>
+                            <!-- <button (click)="uploadFile()">Upload</button> -->
                         </div>
                         <div>
                             <label for="price">Price</label>
@@ -194,10 +194,10 @@
                         </div>
                         <button type="submit" class="" value="Log in">Save</button>
                     </form> -->
-                    <form [formGroup]="updateRegisterForm" class="form-group">
+                    <form [formGroup]="registerForm" class="form-group" id="myForm">
                         <div>
                             <label for="productName">Product Name</label>
-                            <input id="productName" type="text" formControlName="productName">
+                            <input type="text" formControlName="productName">
                         </div>
                         <div>
                             <label for="imageUrl">Image Url</label>
@@ -207,7 +207,7 @@
                             <!-- <button [disabled]="loading" (click)="upload()" class="btn btn-success mt-3">Upload</button> -->
                             <input type="file" accept=".png,.jpg" (change)="handleChange($event)"
                                 formControlName="imageUrl">
-                            <button (click)="uploadFile()">Upload</button>
+                            <!-- <button (click)="uploadFile()">Upload</button> -->
                         </div>
                         <div>
                             <label for="price">Price</label>
@@ -219,20 +219,20 @@
                         </div>
                         <div>
                             <label for="category">Category</label>
-                            <select name="category" id="category" formControlName="category">
+                            <select name="category" formControlName="category">
                                 <option *ngFor="let category of cateId" value="{{category._id}}">
                                     {{category.categoryName}}</option>
                             </select>
                         </div>
                         <div>
                             <label for="brand">Brand</label>
-                            <select name="brand" id="brand" formControlName="brand">
+                            <select name="brand" formControlName="brand">
                                 <option value="{{brand._id}}" *ngFor="let brand of brandId">{{brand.brandName}}</option>
                             </select>
                         </div>
                         <div>
                             <label for="unit">Unit</label>
-                            <select name="unit" id="unit" formControlName="unit">
+                            <select name="unit" formControlName="unit">
                                 <option value="{{unit._id}}" *ngFor="let unit of unitId">{{unit.unitName}}</option>
                             </select>
                         </div>
@@ -240,7 +240,7 @@
 
                         </div>
 
-                        <button class="new-but" (click)="onSubmitUpdate(updateRegisterForm.value)">Save
+                        <button class="new-but" (click)="doSubmitUpdate(registerForm.value)">Save
                             Product</button>
                     </form>
                 </div>

@@ -68,23 +68,23 @@ export class SingleProductComponent implements OnInit {
 
     // this.addToCart(this.productID);
 
-    this.decrementQty();
+    // this.decrementQty();
   }
 
-  decrementQty(){
+  // decrementQty(){
     
-    // this.cartService.increment_.subscribe(newQty => {
-    //   console.log('here' + newQty)
-    //   this.newQty = newQty;
-    //   console.log(this.newQty);
-    //   return this.newQty
-    // })
+  //   // this.cartService.increment_.subscribe(newQty => {
+  //   //   console.log('here' + newQty)
+  //   //   this.newQty = newQty;
+  //   //   console.log(this.newQty);
+  //   //   return this.newQty
+  //   // })
 
-    // console.log(this.item)
-    return this.cartService.incrementI();
+  //   // console.log(this.item)
+  //   return this.cartService.incrementI(newQty);
     
   
-  }
+  // }
 
 
 addToCart(id){

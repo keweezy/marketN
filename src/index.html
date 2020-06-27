@@ -11,6 +11,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="goto-here">
-  <app-root></app-root>
+  <script>
+    // function myFunction() {
+    //   document.getElementById("myForm").reset();
+    // }
+    $('#imagemodal').on('hidden.bs.modal', function (e) {
+  $(this)
+    .find("input,textarea,select")
+       .val('')
+       .end()
+    .find("input[type=checkbox], input[type=radio]")
+       .prop("checked", "")
+       .end();
+})
+    </script>
+
+  <app-root>
+
+  </app-root>
 </body>
 </html>

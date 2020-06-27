@@ -4,8 +4,10 @@ import { ProductService } from '../../app/service/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Item } from '../../app/entities/item.entity';
 import { Product } from '../../app/entities/product.entity';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Injectable({
@@ -16,10 +18,12 @@ export class CartService {
   items: Item[] = [];
   total: number = 0;
   // products: Product[] = [];
+  itemId:any;
   product: any;
   increment: any;
   id: any;
   quantity: number = 1;
+  quantity_:number;
   public cartLength = new Subject();
   public totalSum = new Subject();
   public totalCheckout_ = new Subject();
@@ -27,11 +31,25 @@ export class CartService {
   public increment_ = new Subject();
   public isLoggedIn = new Subject();
   public isLoggedOut = new Subject();
+  private totalItems: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  constructor(private productService: ProductService, @Inject(LOCAL_STORAGE) private storage: StorageService, ) {
+  constructor(
+    private productService: ProductService,
+    @Inject(LOCAL_STORAGE) private storage: StorageService,
+    private toastr: ToastrService,
+  ) {
     // this.sendcartLength(this.storage.get('cart').length);
     this.loadCart();
   }
+
+  getCartItems() {
+    return this.totalItems.asObservable();
+}
+
+updateCartItems(items: number) {
+  this.totalItems.next(items);
+}
+
 
   // addToCart(id) {
   //   this.productService.getProductId(id).pipe(first())
@@ -110,6 +128,7 @@ export class CartService {
             quantity: 1
           };
           // console.log(this.product._id);
+          
           if (!this.storage.get('cart')) {
             let cart: any = [];
 
@@ -127,38 +146,44 @@ export class CartService {
             // console.log(item.product._id);
             for (var i = 0; i < cart.length; i++) {
               let item: Item = cart[i];
-              // console.log(item)
               if (item.product._id === id) {
                 index = i;
                 break;
               }
             }
-            // console.log(item.product._id)
             if (index === -1) {
-
+              
               cart.push(item);
-
+              
               this.storage.set('cart', cart);
               this.sendcartLength(this.storage.get('cart').length);
               // this._cartLength$.next(this.storage.get('cart').length);
             } else {
-
+              
               let item = cart[index];
               item['quantity'] += 1;
               cart[index] = item;
               this.storage.set('cart', cart);
               this.sendcartLength(this.storage.get('cart').length);
+              // this.quantity_ = item.quantity;
+              // this.itemId = item.product._id;
+              // console.log(item.product._id)
+              // this.updateCartItems(this.quantity_);
+              // console.log(this.quantity_);
 
 
               // this._cartLength$.next(this.storage.get('cart').length);
             }
           }
           this.loadCart();
+
         } else {
           this.loadCart();
         }
       }
       );
+      this.toastr.success(`Product added successfully`,'',  {timeOut: 500});
+      
 
   }
 
@@ -181,8 +206,9 @@ export class CartService {
         quantity: item.quantity
       });
       this.total += item.product.price * item['quantity'];
-      this.discount = this.total * 0.01;
+      this.discount = this.total/100;
       this.increment = item['quantity'];
+      console.log(item.quantity)
     }
     this.sendTotalSum(this.total);
     // console.log(localStorage.getItem('cart').length);
@@ -194,14 +220,15 @@ export class CartService {
     } else {
       this.sendLoginStatus(false);
     };
+
     // this._cartLength$.next(this.storage.get('cart').length);
     // console.log(this._cartLength$);
     this.checkoutTotal(this.total - this.discount);
 
     this.netDiscount_(this.discount);
 
-    this.incrementI();
-
+    // this.incrementI(id);
+    
     return this.items;
   }
 
@@ -261,12 +288,6 @@ export class CartService {
     this.netDiscount.next(discountVal);
   }
 
-  incrementI() {
-    // let quantity= 0;
-    // this.increment = this.quantity;
-    this.quantity += 1;
-    // console.log(this.quantity);
-    return
-  }
+
 
 }
