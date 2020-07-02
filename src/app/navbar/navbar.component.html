@@ -21,9 +21,9 @@
             <a class="dropdown-item" href="checkout.html">Checkout</a>
           </div> -->
         </li>
-        <li class="nav-item"><a class="nav-link">About</a></li>
-        <li class="nav-item"><a class="nav-link">Contact</a></li>
-        <li class="nav-item cta cta-colored"><a href="javascript:;" routerLink="/cart" class="nav-link"><span
+        <li class="nav-item"><a class="nav-link" routerLink="/blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+        <li class="nav-item cta cta-colored"><a routerLink="/cart" class="nav-link"><span
               class="icon-shopping_cart "><img class="cart-img" src="../../assets/images/shopping-cart-black-shape.svg" alt="">[{{totalvalue}}]</span></a></li>
       </ul>
       <a class="login-font" (click)="show()" *ngIf="!isLoggedIn">Login</a>

@@ -38,27 +38,10 @@ export class ShopComponent implements OnInit {
     private toastr: ToastrService
 
   ) {
-    // this.products = this.productService.findAll();
-
-
-    // this.allProducts
-    // console.log(this.allProducts);
-    //   for(let i = 1; i <= 100; i++){
-    //     this.product.push({Name: 'Shop ' + i});
-    //  }
   }
 
   ngOnInit(): void {
     this.doGetAllProducts();
-
-
-    // this.newArr();    
-    // this.products.map(item => {
-    //   this.items.push(item);
-    // })
-    // console.log(this.items)
-    // this.allProducts;
-    // console.log(this.allProducts);
   }
 
   doGetAllProducts() {
@@ -68,14 +51,13 @@ export class ShopComponent implements OnInit {
         // console.log("nana");
         // console.log(res);
         this.allProducts = res.data;
-        // console.log(this.allProducts)
+        this.allProducts.map(product => {
+        })
       })
     return this.allProducts
 
   }
 
-
-  // this.allProducts = this.productService.getProductAll(id);
 
 
   addToCart(id) {
@@ -83,21 +65,6 @@ export class ShopComponent implements OnInit {
 
     return this.cartService.addToCart(id);
   }
-
-
-  // async getAllProducts(){
-  //   this.allProducts = [];
-  //   await this.productService.getProductAll()
-  //   .pipe(first())
-  //   .subscribe(res => {
-
-  //   })
-  // }
-
-  // dispAllProd(product){
-  //   return this.productService.getProductAll(product);
-  // }
-
 
 
 }

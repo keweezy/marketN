@@ -17,11 +17,11 @@
     <div class="row justify-content-center">
       <div class="col-md-10 mb-5 text-center">
         <ul class="product-category">
-          <li><a href="#" class="active">All</a></li>
-          <li><a href="#">Vegetables</a></li>
-          <li><a href="#">Fruits</a></li>
-          <li><a href="#">Juice</a></li>
-          <li><a href="#">Dried</a></li>
+          <li><a class="active">All</a></li>
+          <li><a>Vegetables</a></li>
+          <li><a>Fruits</a></li>
+          <li><a>Juice</a></li>
+          <li><a>Dried</a></li>
         </ul>
       </div>
     </div>
@@ -34,11 +34,11 @@
             <div class="overlay"></div>
           </a>
           <div class="text py-3 pb-4 px-3 text-center">
-            <h3><a href="#">{{product.productName}}</a></h3>
+            <h3><a>{{product.productName}}</a></h3>
             <div class="d-flex">
               <div class="pricing">
-                <p class="price"><span class="mr-2 price-dc">$120.00</span><span
-                    class="price-sale">${{product.price}}</span></p>
+                <p class="price"><span class="mr-2 price-dc">&#8358;120.00</span><span
+                    class="price-sale">&#8358;{{product.price}}</span></p>
               </div>
             </div>
 
@@ -54,7 +54,8 @@
                   <!-- <i class="fas fa-shopping-cart"></i> -->
                 </a>
                 <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                  <span><i class="ion-ios-heart"></i></span>
+                  <!-- <span><i class="ion-ios-heart"></i></span> -->
+                  <span><img src="../../../assets/images/heart-black.svg" alt="photo" class="cart-img"></span>
                 </a>
               </div>
             </div>

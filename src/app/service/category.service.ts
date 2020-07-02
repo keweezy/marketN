@@ -89,6 +89,25 @@ export class CategoryService {
     return this.http.patch(environment.base_uri + `categories/${id}`, {categoryName}, httpOptions)
     .pipe(
       map(res => {
+        console.log(res);
+        return res;
+      })
+    )
+  }
+
+  getCategoryId(id): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.accessToken}`,
+        }
+      )
+    };
+    return this.http.get(environment.base_uri + `categories/${id}`, httpOptions)
+    .pipe(
+      map(res => {
+        console.log(res);
         return res;
       })
     )

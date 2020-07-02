@@ -35,18 +35,19 @@ export class CategoryComponent implements OnInit {
 
   show(){
     this.createModal = true;
+    this.categoryForm.reset();
   }
   
 
   hide() {
-		this.createModal = false;
+    this.createModal = false;
   }
 
   brandUpdateModal(id, category){
     this.id = id;
     this.category = category;
     this.updateModal = true;
-
+    this.categoryForm.reset();
   }
 
   hideUpdate(){
@@ -104,7 +105,7 @@ export class CategoryComponent implements OnInit {
     .pipe(first())
     .subscribe(res =>{
       // console.log(res)
-      if(res.success){
+      if(res===null){
         this.toastr.success(`Category updated successfully`)
         this.updateModal = false;
         this.showCategories();

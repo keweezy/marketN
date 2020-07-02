@@ -10,6 +10,7 @@ import { CartService } from '../../service/cart.service';
 import { Subscription, Observable } from 'rxjs';
 import { first } from 'rxjs/operators'
 import { FormControl } from '@angular/forms';
+// import { group } from 'console';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class CartListComponent implements OnInit {
 	newValue: number;
 	newValue_ = new FormControl();
 	newFormVal : any;
+	form:any;
 
 	constructor(
 		private route: ActivatedRoute,
@@ -39,27 +41,12 @@ export class CartListComponent implements OnInit {
 		@Inject(LOCAL_STORAGE) private storage: StorageService,
 		private cartSrv: CartService,
 		private router: Router,
-		private formBuilder: FormBuilder
+		private fb: FormBuilder
 
-	) {
-
-
-
-	}
+	) {	}
 
 	ngOnInit() {
 		this.loadCart();
-
-		// this.newValue_.setValue(8);
-
-		
-		// this.newValue_.valueChanges.subscribe(value => {
-		// 	console.log(value);
-		// 	this.newValue = value;
-		// 	console.log(this.newValue);
-		// })
-
-		// this.newValue_.setValue(4)
 
 		this.cartSrv.totalSum.subscribe(totalSumVal => {
 			// console.log(" have"  + totalSumVal)
@@ -78,75 +65,76 @@ export class CartListComponent implements OnInit {
 		this.getCart();
 
 	}
+	
 
-	async increment(id) {
-		this.itemId = id;
+	createGroup(){
+		const group = this.fb.group({})
+		this.items.forEach(control => group.addControl(control.product.productName, this.fb.control(control.quantity)));
+		console.log(group.controls);
+		return group
+	}
+
+	onChange(id, e){
+		// this.items.map(item => {
+		// 	if (item.product._id === id) {
+		// 		let cart: any = this.storage.get('cart');
+		// 		let index: number = -1;
+		// 		for(var i =0; i<cart.length; i++){
+		// 			let item: Item = cart[i];
+		// 			if(item.product._id === id) {
+		// 				index = i;
+		// 				break;
+		// 			}
+		// 		}
+		// 		item = cart[index];
+		// 		item['quantity'] = Number(e.target.value);
+		// 		cart[index] =item;
+		// 		this.storage.set('cart', cart);
+		// 		this.loadCart();
+		// 	}
+		// })
+		this.doWorking(id, Number(e.target.value), "onChange");
+	}
+
+	doWorking(id, val, act){
 		this.items.map(item => {
-
-			if (item.product._id === this.itemId) {
+			if(item.product._id === id){
 				let cart: any = this.storage.get('cart');
 				let index: number = -1;
-
-				for (var i = 0; i < cart.length; i++) {
+				for( var i =0; i< cart.length; i++){
 					let item: Item = cart[i];
-					if (item.product._id === id) {
+					if(item.product._id === id){
 						index = i;
 						break;
-					}
+					} 
 				}
-				item = cart[index];
-				item['quantity'] += 1;
-				console.log(item)
+				if(act==="increment"){
+					item['quantity'] += 1;
+				} else if(act==="decrement"){
+					if(item['quantity'] >=2){
+						item['quantity'] -= 1;
+					}
+				} else {
+					item['quantity'] = val;
+				}
 				cart[index] = item;
 				this.storage.set('cart', cart);
-				this.newValue_.valueChanges.subscribe(value => {
-					console.log(value);
-					this.newValue = value;
-					console.log(this.newValue);
-				})
-
-				if (this.newValue) {
-					item['quantity'] = this.newValue;
-					console.log(this.newValue)
-					cart[index] = item;
-					this.storage.set('cart', cart);
-					console.log(item)
-					console.log(this.storage.get('cart'))
-				}
-
-
+				this.loadCart()
 			}
 		})
-		this.loadCart();
+	}
+
+	async increment(id) {
+		this.doWorking(id, null, "increment")
 	};
 
 	decrement(id){
-		this.itemId = id;
-		this.items.map(item => {
-			if(item.product._id=== this.itemId){
-				let cart: any = this.storage.get('cart');
-				let index: number = -1;
-				for (var i = 0; i<cart.length; i++){
-					let item: Item = cart[i];
-					if (item.product._id === id){
-						index = i;
-						break;
-					}
-				}
-				item = cart[index];
-				if(item['quantity']>=2){
-				item['quantity'] -= 1;
-				console.log(item)
-				cart[index] = item;
-				this.storage.set('cart', cart);
-				}
-			}
-		})
-		this.loadCart();
+		this.doWorking(id, null, "decrement")
 	}
 
 	loadCart() {
-		this.items = this.cartSrv.loadCart();	
+		this.items = this.cartSrv.loadCart();
+		this.form = this.createGroup();
 	};
 
 	remove(id) {

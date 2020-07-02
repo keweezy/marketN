@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+
 
 
 
@@ -32,6 +34,9 @@ import { CategoryComponent } from './admin/category/category.component';
 import { UnitComponent } from './admin/unit/unit.component';
 import { ProductComponent } from './admin/product/product.component';
 import { Home2Component } from './website/home2/home2.component';
+import { BlogComponent } from './website/blog/blog.component';
+import { ContactComponent } from './website/contact/contact.component';
+import { WishlistComponent } from './website/wishlist/wishlist.component';
 
 
 
@@ -55,6 +60,9 @@ import { Home2Component } from './website/home2/home2.component';
     UnitComponent,
     ProductComponent,
     Home2Component,
+    BlogComponent,
+    ContactComponent,
+    WishlistComponent,
     
 
 
@@ -64,10 +72,11 @@ import { Home2Component } from './website/home2/home2.component';
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
+    NgxStarRatingModule,
     FormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule,    
+    BrowserAnimationsModule,
 Angular4PaystackModule.forRoot('pk_test_c613fc7d428a64fd1e5daea22f8380551b28c78e'),
 AngularFireModule.initializeApp({
   apiKey: "AIzaSyAq6Ndp8ZdBK_p8lxxhPnKm2FwJ90rpDLY",

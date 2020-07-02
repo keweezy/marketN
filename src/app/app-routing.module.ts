@@ -11,6 +11,9 @@ import { UnitComponent } from './admin/unit/unit.component';
 import { ProductComponent } from './admin/product/product.component';
 import { Home2Component} from './website/home2/home2.component';
 import { CartListComponent} from './website/cart-page/cart-list.component';
+import { BlogComponent } from './website/blog/blog.component';
+import { WishlistComponent } from './website/wishlist/wishlist.component';
+import { ContactComponent} from './website/contact/contact.component';
 
 
 const routes: Routes = [
@@ -26,7 +29,10 @@ const routes: Routes = [
   {path: 'category', component:CategoryComponent},
   {path: 'unit', component:UnitComponent},
   {path: 'product', component:ProductComponent},
-  {path: 'home', component:Home2Component}
+  {path: 'home', component:Home2Component},
+  {path: 'blog', component:BlogComponent},
+  {path: 'wishlist', component:WishlistComponent},
+  {path: 'contact', component:ContactComponent}
 
 ];
 

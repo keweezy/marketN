@@ -29,43 +29,45 @@
                             </tr>
                         </thead>
                         <!-- <div [formGroup]= "form"> -->
-                            <tbody>
-                                <tr class="text-center" *ngFor="let item of items; let i =index">
-                                    <td class="product-remove"><a (click)="remove(item.product.id)"><span
-                                                class="ion-ios-close">X</span></a></td>
-    
-                                    <td class="image-prod">
-                                        <div class="img"
-                                            style="background-image:url(../../../assets/images/product-3.jpg);">
-                                            <img src="{{item.product.imageUrl}}" alt="alternative" class="img"></div>
-                                    </td>
-    
-                                    <td class="product-name">
-                                        {{item.product.productName}}
-                                    </td>
-    
-                                    <td class="price">${{item.product.price}}</td>
-    
-                                    <td class="quantity">
-                                        <div class="input-group mb-3">
-                                            <input type="number" name="quantity" class="quantity form-control input-number"
+                        <tbody>
+                            <tr class="text-center" *ngFor="let item of items; let i =index">
+                                <td class="product-remove"><a (click)="remove(item.product.id)"><span
+                                            class="ion-ios-close">X</span></a></td>
+
+                                <td class="image-prod">
+                                    <div class="img"
+                                        style="background-image:url(../../../assets/images/product-3.jpg);">
+                                        <img src="{{item.product.imageUrl}}" alt="alternative" class="img"></div>
+                                </td>
+
+                                <td class="product-name">
+                                    {{item.product.productName}}
+                                </td>
+
+                                <td class="price">&#8358; {{item.product.price}}</td>
+
+                                <td class="quantity">
+                                    <div class="input-group mb-3" [formGroup] = "form">
+                                        <!-- <input type="number" name="quantity" class="quantity form-control input-number"
                                                 value="{{item.quantity}}" min="1" max="100" [formControl]="newValue_" placeholder="{{item.quantity}}">
-                                            <!-- <input type="number" [formControlName]= "item.quantity" class="quantity form-control input-number">         -->
-                                        </div>
-                                        <!-- {{item.quantity}} -->
-                                    </td>
-    
-                                    <td class="total">{{item.product.price * item.quantity}}</td>
-                                    <div class="btn-div">
-                                        <button (click)="decrement(item.product._id)" class="add-button">-</button>
-                                        <button (click)="increment(item.product._id)" class="add-button" style="margin-left: 26px;">+</button>
+                                            <input type="number" [formControlName]= "item.quantity" class="quantity form-control input-number">         -->
+                                        <input type="number" class="quantity form-control input-number"
+                                            value="{{item.quantity}}" [formControlName]="item.product.productName" (change)="onChange(item.product._id, $event)" placeholder="{{item.quantity}}">
                                     </div>
-                                </tr><!-- END TR-->
-    
-    
-                            </tbody>
+                                </td>
+
+                                <td class="total">&#8358; {{item.product.price * item.quantity}}</td>
+                                <div class="btn-div">
+                                    <button (click)="decrement(item.product._id)" class="add-button">-</button>
+                                    <button (click)="increment(item.product._id)" class="add-button"
+                                        style="margin-left: 26px;">+</button>
+                                </div>
+                            </tr><!-- END TR-->
+
+
+                        </tbody>
                         <!-- </div> -->
-                        
+
                     </table>
                 </div>
             </div>
@@ -110,20 +112,20 @@
                     <h3>Cart Totals</h3>
                     <p class="d-flex">
                         <span>Subtotal</span>
-                        <span>${{totalSumVal}}</span>
+                        <span>&#8358;{{totalSumVal}}</span>
                     </p>
                     <p class="d-flex">
                         <span>Delivery</span>
-                        <span>$0.00</span>
+                        <span>&#8358;0.00</span>
                     </p>
                     <p class="d-flex">
                         <span>Discount</span>
-                        <span>${{discountVal}}</span>
+                        <span>&#8358;{{discountVal}}</span>
                     </p>
                     <hr>
                     <p class="d-flex total-price">
                         <span>Total</span>
-                        <span>${{totalCheck}}</span>
+                        <span>&#8358; {{totalCheck}}</span>
                     </p>
                 </div>
                 <p><a href="checkout.html" class="btn btn-primary py-3 px-4" routerLink="/checkout">Proceed to

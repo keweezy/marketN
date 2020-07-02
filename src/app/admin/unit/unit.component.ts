@@ -35,12 +35,13 @@ export class UnitComponent implements OnInit {
   }
 
   show(){
+    this.unitForm.reset();
     this.createModal = true;
   }
   
 
   hide() {
-		this.createModal = false;
+    this.createModal = false;
   }
 
   brandUpdateModal(id, unit){
@@ -48,6 +49,7 @@ export class UnitComponent implements OnInit {
     this.id = id;
     this.unit = unit;
     this.updateModal = true;
+    this.unitForm.reset();
   }
 
   hideUpdate(){

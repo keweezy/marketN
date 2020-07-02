@@ -19,13 +19,13 @@
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end">
                             <img src="../../../assets/images/category-1.jpg" alt="alternative" class="bask-img">
                             <div class="text px-3 py-1 p-pos">
-                                <h2 class="mb-0"><a href="#">Fruits</a></h2>
+                                <h2 class="mb-0"><a>Fruits</a></h2>
                             </div>
                         </div>
                         <div class="category-wrap ftco-animate img d-flex align-items-end">
                             <img src="../../../assets/images/category-2.jpg" alt="alternative" class="bask-img">
                             <div class="text px-3 py-1 p-pos">
-                                <h2 class="mb-0"><a href="#">Vegetables</a></h2>
+                                <h2 class="mb-0"><a >Vegetables</a></h2>
                             </div>
                         </div>
                     </div>
@@ -36,13 +36,13 @@
                 <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end">
                     <img src="../../../assets/images/category-3.jpg" alt="alternative" class="bask-img">
                     <div class="text px-3 py-1 p-pos">
-                        <h2 class="mb-0"><a href="#">Juices</a></h2>
+                        <h2 class="mb-0"><a >Juices</a></h2>
                     </div>
                 </div>
                 <div class="category-wrap ftco-animate img d-flex align-items-end">
                     <img src="../../../assets/images/category-4.jpg" alt="alternative" class="bask-img">
                     <div class="text px-3 py-1 p-pos">
-                        <h2 class="mb-0"><a href="#">Dried</a></h2>
+                        <h2 class="mb-0"><a>Dried</a></h2>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <div class=" col-md-6 col-lg-3 ftco-animate" *ngFor="let product of randomizedProd">
                     <div class="flexview" >
                         <div class="product">
-                            <a href="#" class="img-prod"><img class="img-fluid" src="{{product.imageUrl}}"
+                            <a  class="img-prod"><img class="img-fluid" src="{{product.imageUrl}}"
                                     alt="Colorlib Template">
                                 <span class="status">1%</span>
                                 <div class="overlay"></div>
@@ -75,8 +75,8 @@
                                 <h3>{{product.productName}}</h3>
                                 <div class="d-flex">
                                     <div class="pricing">
-                                        <p class="price"><span class="mr-2 price-dc">$120.00</span><span
-                                                class="price-sale">${{product.price}}</span></p>
+                                        <p class="price"><span class="mr-2 price-dc">&#8358;120.00</span><span
+                                                class="price-sale">&#8358;{{product.price}}</span></p>
                                     </div>
                                 </div>
                                 <div class="bottom-area d-flex px-3">
@@ -89,8 +89,9 @@
                                             <span><img src="../../../assets/images/shopping-cart-black-shape.svg" alt="alternative" class="cart-img"></span>
                                             <!-- <i class="fas fa-shopping-cart"></i> -->
                                         </a>
-                                        <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                            <span><i class="ion-ios-heart"></i></span>
+                                        <a class="heart d-flex justify-content-center align-items-center ">
+                                            <!-- <span><i class="ion-ios-heart"></i></span> -->
+                                            <span><img src="../../../assets/images/heart-black.svg" alt="photo" class="cart-img"></span>
                                         </a>
                                     </div>
                                 </div>

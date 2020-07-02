@@ -77,6 +77,7 @@ export class ProductComponent implements OnInit {
 
   show() {
     this.createModal = true;
+    this.registerForm.reset()
   }
 
 
@@ -88,9 +89,8 @@ export class ProductComponent implements OnInit {
     this.id = id;
     this.product_ = product_;
     // console.log(this.brand);
-
     this.updateModal = true;
-
+    this.registerForm.reset()
   }
 
   hideUpdate() {
@@ -203,7 +203,7 @@ export class ProductComponent implements OnInit {
         // console.log("nana");
         // console.log(res);
         this.allProducts = res.data;
-        // console.log(this.allProducts)
+        console.log(this.allProducts)
       })
     // return this.allProducts
 

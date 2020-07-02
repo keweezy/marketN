@@ -51,7 +51,7 @@
     </div>
 
 
-    <!-- <div [style.display]="updateModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
+    <div [style.display]="updateModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
         aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog ">
             <div class="modal-content">
@@ -59,7 +59,7 @@
                     <h4 class="modal-title" id="myModalLabel">Update Category</h4>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="categoryForm" (ngSubmit)="onSubmitUpdate(categoryName.value)">
+                    <form [formGroup]="categoryForm" (ngSubmit)="onSubmitUpdate(categoryForm.value)">
                         <div class="form-group">
                             <label for="brand">Category</label>
                             <input type="text" formControlName="categoryName" class="form-control" placeholder="{{category}}"
@@ -74,6 +74,6 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     
 </div>

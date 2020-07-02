@@ -68,8 +68,8 @@ export class NavbarComponent implements OnInit {
 	}
 
 	show() {
+		this.registerForm.reset()
 		this.showModal = true; // Show-Hide Modal Check
-
 	}
 	//Bootstrap Modal Close event
 	hide() {

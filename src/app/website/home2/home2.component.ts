@@ -2,18 +2,19 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Item } from '../../entities/item.entity';
 import { Product } from '../../entities/product.entity';
 import { ProductService } from '../../service/product.service';
+import { CategoryService} from '../../service/category.service';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { CartService } from '../../service/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-home2',
-  templateUrl: './home2.component.html',
-  styleUrls: ['./home2.component.scss']
+	selector: 'app-home2',
+	templateUrl: './home2.component.html',
+	styleUrls: ['./home2.component.scss']
 })
 export class Home2Component implements OnInit {
-  threeRandomProducts: any;
+	threeRandomProducts: any;
 	// randomId: {};
 	randomIds: any;
 	// public products: Product[];
@@ -25,20 +26,21 @@ export class Home2Component implements OnInit {
 
 	randomizedProd1: any;
 
-  constructor(
-    private productService: ProductService,
+	constructor(
+		private productService: ProductService,
 		@Inject(LOCAL_STORAGE) private storage: StorageService,
 		private cartService: CartService,
 		private route: ActivatedRoute,
-		private router: Router
-  ) { }
+		private router: Router,
+		private cateSrv: CategoryService
+	) { }
 
-  ngOnInit(): void {
-    this.getProductAll();
+	ngOnInit(): void {
+		this.getProductAll();
 		this.getNewRandom();
-  }
+	}
 
-  doRandom() {
+	doRandom() {
 		// if (this.products === undefined) {
 		// 	setTimeout(() => {
 		// 		this.products.map(item => {
@@ -114,4 +116,23 @@ export class Home2Component implements OnInit {
 				// console.log(this.randomizedProd);
 			})
 	}
+
+	async getCategoryId(id) {
+		await this.cateSrv.getCategoryId(id)
+		.pipe(first())
+		.subscribe(res => {
+			console.log(res);
+		})
+	}
+
+	async getAllCategoryById() {
+		await this.cateSrv.getCategorys()
+		.pipe(first())
+		.subscribe(res => {
+
+			return res;
+		})
+	}
+
+	
 }

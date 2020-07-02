@@ -208,7 +208,7 @@ updateCartItems(items: number) {
       this.total += item.product.price * item['quantity'];
       this.discount = this.total/100;
       this.increment = item['quantity'];
-      console.log(item.quantity)
+      // console.log(item.quantity)
     }
     this.sendTotalSum(this.total);
     // console.log(localStorage.getItem('cart').length);
