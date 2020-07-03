@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { AgmCoreModule } from '@agm/core';
+
 
 
 
@@ -83,6 +85,9 @@ AngularFireModule.initializeApp({
   authDomain: "marketboy-a51e5.firebaseapp.com",
   storageBucket: "marketboy-a51e5.appspot.com",
   projectId: "marketboy-a51e5"
+}),
+AgmCoreModule.forRoot({
+  apiKey: 'AIzaSyBNv3ddNBQYM5qH26IHnBhJCqm5TRug2LY'
 }),
 AngularFireStorageModule
   ],

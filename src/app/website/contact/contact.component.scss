@@ -1,0 +1,42 @@
+.contact-section .contact-info p a {
+  color: #1a1a1a;
+}.contact-section{
+    border-bottom: solid 1px #d7dcd1;
+}
+
+.contact-section .info {
+  width: 100%;
+}
+
+.contact-section .contact-form {
+  width: 100%;
+}
+
+#map {
+  width: 100%;
+}
+@media (max-width: 991.98px) {
+  #map {
+    height: 300px;
+  }
+}
+agm-map {
+  height: 530px;
+}
+
+* {
+  font-family: Lato;
+}
+
+a {
+  color: darkblue;
+}
+
+.backgrd {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bg-light{
+    background-color: #d7dcd1 !important;
+}
