@@ -7,7 +7,7 @@ import { MouseEvent } from '@agm/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  zoom: number = 10;
+  zoom: number = 5;
   lat: number = 6.4535;
   lng: number = 3.4343;
   constructor() { }
