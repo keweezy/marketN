@@ -54,3 +54,37 @@
 .ftco-footer-social li a:hover {
   color: #000000;
 }
+ul {
+  list-style: none;
+}
+.li {
+  display: flex;
+  margin-bottom: 10px !important;
+  position: relative;
+  right: 30px;
+}
+.fa {
+  right: 10px;
+  position: relative;
+  font-size: 18px;
+}
+.sub-form {
+  position: relative;
+  margin-left: 200px;
+}
+.fa-twitter {
+  font-size: 30px !important;
+  margin-left: 22px;
+}
+.fa-facebook-official {
+  font-size: 30px !important;
+  margin-left: 22px;
+}
+.fa-instagram {
+  font-size: 30px !important;
+  margin-left: 22px;
+}
+// li.icon> .fa{
+//   font-size: 30px !important;
+//   margin-left: 22px;
+// }

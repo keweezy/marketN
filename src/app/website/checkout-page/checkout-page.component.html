@@ -142,7 +142,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- <p><a href="#" class="btn btn-primary py-3 px-4">Place an order</a></p> -->
                 <angular4-paystack [email]="'mailexample@mail.com'" [amount]= "totalCheck * 100" [ref]="reference"
                   [channels]="['bank']" [class]="'btn btn-primary py-3 px-4'" (close)="paymentClose()" (click)="paymentInit()"
                   (callback)="paymentDone($event)">

@@ -9,16 +9,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { startWith } from 'rxjs/operators';
 
 
 @Component({
   selector: 'app-single-product',
   templateUrl: './single-product.component.html',
   styleUrls: ['./single-product.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class SingleProductComponent implements OnInit {
-
   // public products: Product[];
   // public items: Item[]=[];
   // public total : number = 0;
@@ -30,8 +32,8 @@ export class SingleProductComponent implements OnInit {
   randomizedCat: any[] = [];
   productByCat: any;
   catId: any;
-  starRating:number;
-
+  form: FormGroup;
+  value: Observable<number>;
 
   constructor(
     private productService: ProductService,
@@ -39,47 +41,49 @@ export class SingleProductComponent implements OnInit {
     private cartService: CartService,
     private route: ActivatedRoute,
     private router: Router,
-    private cateSrv: CategoryService
+    private cateSrv: CategoryService,
+    private formBuilder: FormBuilder
   ) {
-    // this.productID = "5ed7052edf7f9400042b58bd";
+    // this.productID = '5ed7052edf7f9400042b58bd';
     this.productID = this.route.snapshot.paramMap.get('id');
 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };
-    this.starRating = 3;
-
   }
 
   ngOnInit(): void {
     // console.log(this.productID)
     this.doAm();
     // this.getRandom();
+    this.form = this.formBuilder.group({
+      rating: [3]
+    });
 
+    this.value = this.form.controls.rating.valueChanges.pipe(startWith(3));
   }
-  
 
   async doAm() {
     this.productID = this.route.snapshot.paramMap.get('id');
-    await this.productService.getProductId2(this.productID)
-      .then(res => {
+    await this.productService.getProductId2(this.productID).then(
+      (res) => {
         this.item = res;
-        console.log(this.item);
+        // console.log(this.item);
         this.catId = this.item.category['_id'];
         // console.log(this.catId);
-      }, err => {
-        console.log(err);
-      });
-    // console.log(this.item);
-    console.log(this.catId);
-    this.productService.getProductByCatId(this.catId).pipe(first())
-      .subscribe(res => {
-        console.log(res);
+      },
+      (err) => {
+        // console.log(err);
+      }
+    );
+    this.productService
+      .getProductByCatId(this.catId)
+      .pipe(first())
+      .subscribe((res) => {
         this.category = res.data;
-        console.log(this.category);
         this.runam();
-      })
-    this.item
+      });
+    this.item;
   }
 
   // async getRandom(){
@@ -95,7 +99,9 @@ export class SingleProductComponent implements OnInit {
   // }
 
   runam() {
-    let m = this.category.length, t, i;
+    let m = this.category.length,
+      t,
+      i;
 
     while (m) {
       i = Math.floor(Math.random() * m--);
@@ -107,9 +113,8 @@ export class SingleProductComponent implements OnInit {
 
     this.randomizedCat = this.category;
     this.randomizedCat.splice(4);
-    console.log(this.randomizedCat)
+    // console.log(this.randomizedCat);
   }
-
 
   // getAllProductByCat(){
   //   this.productService.getProductAll().pipe(first())
@@ -127,6 +132,4 @@ export class SingleProductComponent implements OnInit {
     // console.log(this.productID)
     return this.cartService.addToCart(id);
   }
-  
-
 }

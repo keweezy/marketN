@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { Product } from '../entities/product.entity';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { AuthService } from '../service/auth.service';

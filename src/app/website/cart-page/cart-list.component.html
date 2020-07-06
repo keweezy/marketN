@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Cart</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a >Home</a></span> <span>Cart</span></p>
                 <h1 class="mb-0 bread">My Cart</h1>
             </div>
         </div>
@@ -13,7 +13,7 @@
 
 
 <section class="ftco-section ftco-cart">
-    <div class="container">
+    <div class="container" style="margin-right: 0px;">
         <div class="row">
             <div class="col-md-12 ftco-animate">
                 <div class="cart-list">
@@ -44,7 +44,7 @@
                                     {{item.product.productName}}
                                 </td>
 
-                                <td class="price">&#8358; {{item.product.price}}</td>
+                                <td class="price">&#8358;{{item.product.price}}</td>
 
                                 <td class="quantity">
                                     <div class="input-group mb-3" [formGroup] = "form">
@@ -56,7 +56,7 @@
                                     </div>
                                 </td>
 
-                                <td class="total">&#8358; {{item.product.price * item.quantity}}</td>
+                                <td class="total">&#8358;{{item.product.price * item.quantity}}</td>
                                 <div class="btn-div">
                                     <button (click)="decrement(item.product._id)" class="add-button">-</button>
                                     <button (click)="increment(item.product._id)" class="add-button"
@@ -84,7 +84,7 @@
                         </div>
                     </form>
                 </div>
-                <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Apply Coupon</a></p>
+                <p><a  class="btn btn-primary py-3 px-4">Apply Coupon</a></p>
             </div>
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
@@ -105,7 +105,7 @@
                         </div>
                     </form>
                 </div>
-                <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Estimate</a></p>
+                <p><a  class="btn btn-primary py-3 px-4">Estimate</a></p>
             </div>
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
@@ -125,10 +125,10 @@
                     <hr>
                     <p class="d-flex total-price">
                         <span>Total</span>
-                        <span>&#8358; {{totalCheck}}</span>
+                        <span>&#8358;{{totalCheck}}</span>
                     </p>
                 </div>
-                <p><a href="checkout.html" class="btn btn-primary py-3 px-4" routerLink="/checkout">Proceed to
+                <p><a  class="btn btn-primary py-3 px-4" routerLink="/checkout">Proceed to
                         Checkout</a></p>
             </div>
         </div>

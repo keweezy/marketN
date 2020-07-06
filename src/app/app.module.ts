@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
-import { NgxStarRatingModule } from 'ngx-star-rating';
+import { NgxInputStarRatingModule } from 'ngx-input-star-rating';
 import { AgmCoreModule } from '@agm/core';
 
 
@@ -64,27 +64,23 @@ import { WishlistComponent } from './website/wishlist/wishlist.component';
     Home2Component,
     BlogComponent,
     ContactComponent,
-    WishlistComponent,
-    
-
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    NgxStarRatingModule,
     FormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    NgxInputStarRatingModule,
     BrowserAnimationsModule,
 Angular4PaystackModule.forRoot('pk_test_c613fc7d428a64fd1e5daea22f8380551b28c78e'),
 AngularFireModule.initializeApp({
-  apiKey: "AIzaSyAq6Ndp8ZdBK_p8lxxhPnKm2FwJ90rpDLY",
-  authDomain: "marketboy-a51e5.firebaseapp.com",
-  storageBucket: "marketboy-a51e5.appspot.com",
-  projectId: "marketboy-a51e5"
+  apiKey: 'AIzaSyAq6Ndp8ZdBK_p8lxxhPnKm2FwJ90rpDLY',
+  authDomain: 'marketboy-a51e5.firebaseapp.com',
+  storageBucket: 'marketboy-a51e5.appspot.com',
+  projectId: 'marketboy-a51e5'
 }),
 AgmCoreModule.forRoot({
   apiKey: 'AIzaSyBNv3ddNBQYM5qH26IHnBhJCqm5TRug2LY'
@@ -95,7 +91,7 @@ AngularFireStorageModule
 
     // FruitPicsComponent
   ],
-  providers: [ProductService,AuthService,],
+  providers: [ProductService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -36,7 +36,7 @@
     "font-awesome": "^4.7.0",
     "jw-angular-pagination": "^1.1.0",
     "lokijs": "^1.5.8",
-    "ngx-star-rating": "0.0.1",
+    "ngx-input-star-rating": "0.0.3",
     "ngx-toastr": "^12.1.0",
     "ngx-webstorage-service": "^4.1.0",
     "rxjs": "~6.5.4",

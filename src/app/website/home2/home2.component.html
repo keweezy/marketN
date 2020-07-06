@@ -8,7 +8,7 @@
                     <div class="col-md-6 order-md-last align-items-stretch d-flex">
                         <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex">
                             <img src="../../../assets/images/category-1.jpg" alt="alternative" class="bask-img bask-img2">
-                            <div class="text text-center" style="position: absolute;">
+                            <div class="text text-center veggie">
                                 <h2>Vegetables</h2>
                                 <p>Protect the health of every home</p>
                                 <p><a routerLink='/shop' class="btn btn-primary">Shop now</a></p>
@@ -50,7 +50,7 @@
     </div>
 </section>
 
-<section class="ftco-section">
+<section >
     <div class="container">
         <div class="row justify-content-center mb-3 pb-3">
             <div class="col-md-12 heading-section text-center ftco-animate">
@@ -76,14 +76,14 @@
                                 <div class="d-flex">
                                     <div class="pricing">
                                         <p class="price"><span class="mr-2 price-dc">&#8358;120.00</span><span
-                                                class="price-sale">&#8358;{{product.price}}</span></p>
+                                                class="price-sale"> &#8358;{{product.price}}</span></p>
                                     </div>
                                 </div>
                                 <div class="bottom-area d-flex px-3">
                                     <div class="m-auto d-flex">
                                         <a routerLink="/single/{{product._id}}"
                                             class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                            <span><i class="ion-ios-menu"></i></span>
+                                            <span><i class="fa fa-info" aria-hidden="true"></i></span>
                                         </a>
                                         <a (click)=addToCart(product._id) class="buy-now d-flex justify-content-center align-items-center mx-1">
                                             <span><img src="../../../assets/images/shopping-cart-black-shape.svg" alt="alternative" class="cart-img"></span>

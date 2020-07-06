@@ -1,8 +1,17 @@
-.cart-img{
+.cart-img {
   height: 16px !important;
-    width: 25px !important;
-    position: relative !important;
-    margin-bottom: 3px !important;
+  width: 25px !important;
+  position: relative !important;
+  margin-bottom: 3px !important;
+}
+
+.veg-posi {
+  position: relative;
+  right: 150px;
+}
+.ul-style{
+  position: relative;
+  right: 45px;
 }
 
 .navbar-brand {
@@ -33,32 +42,33 @@
   font-size: 11px;
 }
 
-.loginNew{
+.loginNew {
   padding: 2px;
-    background: #82ae46;
-    border-radius: 7px;
-    position: relative;
-    bottom: 2px;
+  background: #82ae46;
+  border-radius: 7px;
+  position: relative;
+  bottom: 2px;
 }
 
-.login-font{
-      margin-bottom: 4px;
-      border: solid;
-      padding: 0 10px;
-      background: darkseagreen;
-      height: 32px;
-      // width: 56px;
-      color: white;
-      text-align: center;
-      border-radius: 7px;
-      cursor: pointer;
-    }
-.nav-up{
+.login-font {
+  margin-bottom: 4px;
+  border: solid;
+  padding: 0 10px;
+  background: darkseagreen;
+  height: 32px;
+  // width: 56px;
+  color: white;
+  text-align: center;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-right: 34px;
+}
+.nav-up {
   position: fixed;
   height: 53px;
 }
 
-.nav-menu_{
+.nav-menu_ {
   position: absolute;
   right: 25px;
 }

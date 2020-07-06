@@ -12,15 +12,15 @@ import { CategoryService} from '../../service/category.service';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-  createModal:boolean;
-  id:any;
-  categoryForm=new FormGroup({
-    categoryName:new FormControl('',Validators.required),
-  })
-  submitted:boolean;
-  allCat:any;
-  category:any;
-  updateModal:boolean;
+  createModal: boolean;
+  id: any;
+  categoryForm = new FormGroup({
+    categoryName: new FormControl('', Validators.required),
+  });
+  submitted: boolean;
+  allCat: any;
+  category: any;
+  updateModal: boolean;
 
   constructor(
     private toastr: ToastrService,
@@ -37,8 +37,6 @@ export class CategoryComponent implements OnInit {
     this.createModal = true;
     this.categoryForm.reset();
   }
-  
-
   hide() {
     this.createModal = false;
   }
@@ -63,14 +61,13 @@ export class CategoryComponent implements OnInit {
         this.toastr.success(`Category created successfully`)
         this.createModal = false;
         this.showCategories();
-      }
-      else{
+      } else {
         this.toastr.error(`Something went wrong`)
       }
     }, err =>{
       this.toastr.error(`${err.error.message}`);
       this.submitted = false;
-    })
+    });
   }
 
   showCategories(){
@@ -81,9 +78,8 @@ export class CategoryComponent implements OnInit {
       // console.log(res);
       this.allCat = res.data;
       // console.log(this.allCat)
-    })
-  };
-  
+    });
+  }
   async delCategory(id){
     // console.log(id);
     await this.catSrv.deleteCategory(id)

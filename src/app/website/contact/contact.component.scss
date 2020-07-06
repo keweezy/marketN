@@ -1,7 +1,8 @@
 .contact-section .contact-info p a {
-  color: #1a1a1a;
-}.contact-section{
-    border-bottom: solid 1px #d7dcd1;
+  color: #5a8a5a;
+}
+.contact-section {
+  border-bottom: solid 1px #d7dcd1;
 }
 
 .contact-section .info {
@@ -12,6 +13,10 @@
 
 .contact-section .contact-form {
   width: 100%;
+  border-radius: 15px;
+}
+.info {
+  border-radius: 10px;
 }
 
 #map {
@@ -26,9 +31,9 @@ agm-map {
   height: 530px;
 }
 
-* {
-  font-family: Lato;
-}
+// * {
+//   font-family: Lato;
+// }
 
 a {
   color: darkblue;
@@ -39,6 +44,22 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.bg-light{
-    background-color: #d7dcd1 !important;
+.bg-light {
+  background-color: #d7dcd1 !important;
+  height: 711px;
+}
+.btn-primary {
+  border-radius: 45px;
+  background: #d7dcd1;
+  border-color: #d7dcd1;
+}
+
+.unique:hover {
+  background-color: white;
+  border: solid 1px #d7dcd2;
+  color: #5a8a5a;
+}
+.container {
+  position: relative;
+  top: 20px;
 }

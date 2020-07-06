@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
-<div >
-  <img src="../../../assets/images/about.jpg" alt="photo" class="img-header">
+<div class="even">
+  <img src="../../../assets/images/about.jpg" alt="alternative" class="img-header">
   <div class="container">
     <div class="row no-gutters slider-text align-items-center justify-content-center">
       <div class="col-md-9 ftco-animate text-center product-header">
@@ -29,7 +29,7 @@
       <div class="col-md-6 col-lg-3 ftco-animate"
         *ngFor="let product of allProducts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
         <div class="product">
-          <a href="#" class="img-prod"><img class="img-fluid" src="{{product.imageUrl}}" alt="photo">
+          <a  class="img-prod"><img class="img-fluid" src="{{product.imageUrl}}" alt="photo">
             <span class="status">1%</span>
             <div class="overlay"></div>
           </a>
@@ -46,14 +46,14 @@
               <div class="m-auto d-flex">
                 <a routerLink="/single/{{product._id}}"
                   class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                  <span><i class="ion-ios-menu"></i></span>
+                  <span><i class="fa fa-info" aria-hidden="true"></i></span>
                 </a>
                 <a (click)=addToCart(product._id) class="buy-now d-flex justify-content-center align-items-center mx-1">
                   <span><img src="../../../assets/images/shopping-cart-black-shape.svg" alt="alternative"
                       class="cart-img"></span>
                   <!-- <i class="fas fa-shopping-cart"></i> -->
                 </a>
-                <a href="#" class="heart d-flex justify-content-center align-items-center ">
+                <a  class="heart d-flex justify-content-center align-items-center ">
                   <!-- <span><i class="ion-ios-heart"></i></span> -->
                   <span><img src="../../../assets/images/heart-black.svg" alt="photo" class="cart-img"></span>
                 </a>
@@ -68,12 +68,12 @@
       <div class="col text-center">
         <div class="block-27">
           <ul>
-            <!-- <li><a href="#">&lt;</a></li>
+            <!-- <li><a >&lt;</a></li>
             <li class="active"><span>1</span></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li> -->
+            <li><a >2</a></li>
+            <li><a >3</a></li>
+            <li><a >4</a></li>
+            <li><a >5</a></li> -->
             <!-- <ngb-pagination [collectionSize]="products.length" [(page)]="page" [maxSize]="5" [rotate]="true"
               [ellipses]="false" [boundaryLinks]="true" ></ngb-pagination> -->
             <li>
@@ -82,6 +82,7 @@
             </li>
 
           </ul>
+
 
           <!-- <table>
             <tr *ngFor="let product of allProducts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">

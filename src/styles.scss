@@ -50,7 +50,7 @@
 }
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px;
+    max-width: 1400px;
   }
 }
 
@@ -209,13 +209,13 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #81ae46;
+  border-color: #81ae46;
 }
 .btn-primary:hover {
-  color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  color: #81ae46;
+  background-color: white;
+  border-color: #81ae46;
 }
 .btn-primary:focus,
 .btn-primary.focus {
