@@ -5,19 +5,18 @@
   <div class="container">
     <div class="row no-gutters slider-text align-items-center justify-content-center">
       <div class="col-md-9 ftco-animate text-center product-header">
-        <p class="breadcrumbs"><span class="mr-2"><a routerLink= "/home">Home</a></span> <span>Products</span></p>
-        <h1 class="mb-0 bread">Products</h1>
+        <!-- <p class="breadcrumbs"> <span style="font-size: 21px;">Products</span></p> -->
+        <h1 class="mb-0 bread"><span>All</span> Products</h1>
       </div>
     </div>
   </div>
 </div>
-
 <section class="ftco-section" style="margin-top: 50px;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10 mb-5 text-center">
         <ul class="product-category">
-          <li><a class="active">All</a></li>
+          <li><a class="active" (click)="doGetAllProducts()">All</a></li>
           <li><a>Vegetables</a></li>
           <li><a>Fruits</a></li>
           <li><a>Juice</a></li>

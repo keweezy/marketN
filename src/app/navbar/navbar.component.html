@@ -6,7 +6,14 @@
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="oi oi-menu"></span>
     </button> -->
-
+    <form class="form-posi">
+      <input type="search" name="query" [(ngModel)]="query" (keyup.enter)="search(query)" placeholder="search product by name and category" class="search-bar">
+      <!-- <button type="button" (click)="search(query)" routerLink="/shop">Search</button> -->
+      <button type="button" (click)="search(query)" class="search-btn">Search</button>
+    </form>
+    <div>
+    <button type="button" routerLink='/product' *ngIf="userPermLvl?.permissionLevel > 1" class="admin-btn">Admin</button>
+    </div>
     <div class="collapse navbar-collapse nav-menu_" id="ftco-nav">
       <ul class="navbar-nav ml-auto nav ul-style">
         <li class="nav-item active"><a routerLink="/home" class="nav-link">Home</a></li>
@@ -64,12 +71,12 @@
                   <input class="form-check-input" type="checkbox" name="remember"> Remember me
                 </label>
               </div>
-              <button type="submit" class=""
+              <button type="submit" class="modal-btn"
                 value="Log in">Submit</button>
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()">Close</button>
+            <button type="button" class="modal-btn" data-dismiss="modal" (click)="hide()">Close</button>
             <a class="create-link" routerLink="/createAcc" (click)="hide()" (close)= "hide()">No Account? Create Account</a>
           </div>
         </div>

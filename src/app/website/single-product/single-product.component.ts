@@ -47,7 +47,7 @@ export class SingleProductComponent implements OnInit {
     // this.productID = '5ed7052edf7f9400042b58bd';
     this.productID = this.route.snapshot.paramMap.get('id');
 
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+    this.router.routeReuseStrategy.shouldReuseRoute =  () => {
       return false;
     };
   }
@@ -69,7 +69,7 @@ export class SingleProductComponent implements OnInit {
       (res) => {
         this.item = res;
         // console.log(this.item);
-        this.catId = this.item.category['_id'];
+        this.catId = this.item.category._id;
         // console.log(this.catId);
       },
       (err) => {

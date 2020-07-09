@@ -94,6 +94,9 @@ import { FormControl } from '@angular/forms';
     // })
     this.doWorking(id, Number(e.target.value), 'onChange');
   }
+  count() {
+    const count = +1;
+  }
 
   doWorking(id, val, act) {
     this.items.map((item) => {

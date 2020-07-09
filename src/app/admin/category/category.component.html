@@ -1,3 +1,4 @@
+<!-- <app-pnavbar></app-pnavbar> -->
 <app-sidenavbar></app-sidenavbar>
 <div class="container-dash">
     <div class="form-posi">
@@ -14,7 +15,7 @@
         <div *ngFor="let category of allCat" class="listItems">
             <div>
                 <h2>{{category.categoryName}}</h2>
-                <button (click)="delCategory(category.id)">Delete</button>
+                <button (click)="delCategory(category.id)" >Delete</button>
                 <button (click)= "brandUpdateModal(category._id,category.categoryName)">Update Brand</button>
             </div>
 
@@ -35,11 +36,11 @@
                             <input type="text" formControlName="categoryName" class="form-control" placeholder="Category Name" ng-reflect-name="Category Name"
                                 require />
                         </div>
-                        <button type="submit" class="" value="Log in">Submit</button>
+                        <button type="submit" class="new-but" value="Log in">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()">Close</button>
+                    <button type="button" class="btn btn-dark new-but" data-dismiss="modal" (click)="hide()">Close</button>
                 </div>
             </div>
         </div>

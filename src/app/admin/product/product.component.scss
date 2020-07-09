@@ -88,26 +88,26 @@
 //   top: 150px;
 // }
 
-// .button-class {
-//   position: relative;
-//   bottom: 25px;
-//   margin-left: 30px;
-//   text-align: center;
-//   margin-right: 45px;
-// }
-// .noHover{
-//   pointer-events: none;
-// }
-// .product:hover .pricing {
-//   pointer-events: none !important;
-// }
-// .pro-form{
-//   position: absolute;
-//   left: 140px;
-// }
-// .new-but{
-//   background-color: #81ae46 !important;
-// }
+.button-class {
+  position: relative;
+  bottom: 25px;
+  margin-left: 30px;
+  text-align: center;
+  margin-right: 45px;
+}
+.noHover{
+  pointer-events: none;
+}
+.product:hover .pricing {
+  pointer-events: none !important;
+}
+.pro-form{
+  position: absolute;
+  left: 140px;
+}
+.new-but{
+  background-color: #81ae46 !important;
+}
 .container-dash {
   margin-left: 250px;
   overflow: hidden;
@@ -116,7 +116,7 @@
 }
 .allBrands {
   position: relative;
-  margin-left: 300px;
+  left: 460px;
   font-size: 50px;
   margin-bottom: 48px;
 }
@@ -132,6 +132,7 @@ button {
   margin-right: 8px;
   font-size: 13px;
   background: #e8f7e8;
+  box-shadow: 1px 1px black;
   border-radius: 10px;
   font-family: serif;
   border: 0;
@@ -150,6 +151,7 @@ button {
   position: relative;
   left: 30em;
   display: flex;
+  list-style: none;
 }
 
 .li {
@@ -160,4 +162,7 @@ button {
   position: relative;
   right: 20rem;
   padding: 50px 0;
+}
+button:focus {
+  outline: none;
 }

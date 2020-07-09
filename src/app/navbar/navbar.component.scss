@@ -4,12 +4,15 @@
   position: relative !important;
   margin-bottom: 3px !important;
 }
-
+.form-posi {
+  position: absolute;
+  left: 23em;
+}
 .veg-posi {
   position: relative;
   right: 150px;
 }
-.ul-style{
+.ul-style {
   position: relative;
   right: 45px;
 }
@@ -54,7 +57,7 @@
   margin-bottom: 4px;
   border: solid;
   padding: 0 10px;
-  background: darkseagreen;
+  background: #82ae46;
   height: 32px;
   // width: 56px;
   color: white;
@@ -71,4 +74,47 @@
 .nav-menu_ {
   position: absolute;
   right: 25px;
+}
+.search-bar {
+  border-radius: 30px;
+  margin-right: 15px;
+  border: solid 1px #aeceae;
+  width: 315px;
+  padding-left: 10px;
+}
+.search-btn {
+  border-radius: 40px;
+  background: #cccccc;
+  padding: 0 10px 0 10px;
+  border: solid 1px #cccccc;
+  color: aliceblue;
+}
+::placeholder {
+  color: gray;
+  opacity: 0.5;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+.admin-btn {
+  position: relative;
+  right: 620px;
+  border-radius: 7px;
+  background: gray;
+  opacity: 0.8;
+  border: solid 1px gray;
+  color: white;
+}
+
+a:not([href]):hover {
+  background-color: transparent;
+  text-decoration: none;
+  color: darkseagreen;
+}
+.modal-btn {
+  border-radius: 8px;
+  border: solid 2px azure;
+  background: lavender;
+  padding: 0 8px 0 8px;
 }

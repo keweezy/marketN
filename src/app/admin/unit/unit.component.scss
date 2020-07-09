@@ -6,7 +6,7 @@
 }
 .allBrands {
   position: relative;
-  margin-left: 300px;
+  left: 460px;
   font-size: 50px;
   margin-bottom: 48px;
 }
@@ -25,8 +25,12 @@ button {
   border-radius: 10px;
   font-family: serif;
   border: 0;
+  box-shadow: 1px 1px black;
 }
-
+.new-but{
+  background-color: #81ae46 !important;
+  color: black;
+}
 .disp-items {
   display: flex;
   flex-flow: wrap;
@@ -40,6 +44,7 @@ button {
   position: relative;
   left: 30em;
   display: flex;
+  list-style: none;
 }
 
 .li {
@@ -50,4 +55,7 @@ button {
   position: relative;
   right: 20rem;
   padding: 50px 0;
+}
+button:focus {
+  outline: none;
 }

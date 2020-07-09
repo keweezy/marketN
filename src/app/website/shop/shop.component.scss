@@ -9,7 +9,13 @@ div.even > img {
   height: 400px;
   object-fit: cover;
   margin-top: 48px;
-  object-position: bottom;
+  object-position: center;
+}
+.bread {
+  font-size: 60px;
+  line-height: 1;
+  font-weight: bolder;
+  display: grid;
 }
 
 .product-category li {
@@ -65,7 +71,7 @@ div.even > img {
 
 .product-header {
   position: absolute;
-  top: 150px;
+  top: 190px;
 }
 .fa {
   color: black !important;

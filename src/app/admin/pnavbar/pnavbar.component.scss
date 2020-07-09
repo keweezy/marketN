@@ -61,3 +61,16 @@ a.notification::after {
     padding-left: 40px !important;
     min-height: 45px;
 }
+.home-btn {
+    position: relative;
+    left: 11rem;
+    display: flex;
+    background: #e9f7e8;
+    width: fit-content;
+    padding: 2px 10px;
+    border: solid 1px #e9f7e8;
+    margin-top: 5px;
+    border-radius: 8px;
+    box-shadow: 1px 1px black;
+    color: black;
+}
