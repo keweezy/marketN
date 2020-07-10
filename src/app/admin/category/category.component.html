@@ -1,16 +1,12 @@
-<app-pnavbar></app-pnavbar>
-
-
-
-
+<!-- <app-pnavbar></app-pnavbar> -->
 <app-sidenavbar></app-sidenavbar>
 <div class="container-dash">
     <div class="form-posi">
         <ul class="ul-form">
             <li class="li"><a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#"
                     (click)="show()" class="createBrand">Create Category</a></li>
-            <!-- <li class="li"><a href="">Update Brand</a></li>
-            <li class="li"><a href="">Delete Brand</a></li> -->
+            <!-- <li class="li"><a >Update Brand</a></li>
+            <li class="li"><a >Delete Brand</a></li> -->
         </ul>
     </div>
 
@@ -19,7 +15,7 @@
         <div *ngFor="let category of allCat" class="listItems">
             <div>
                 <h2>{{category.categoryName}}</h2>
-                <button (click)="delCategory(category.id)">Delete</button>
+                <button (click)="delCategory(category.id)" >Delete</button>
                 <button (click)= "brandUpdateModal(category._id,category.categoryName)">Update Brand</button>
             </div>
 
@@ -40,18 +36,18 @@
                             <input type="text" formControlName="categoryName" class="form-control" placeholder="Category Name" ng-reflect-name="Category Name"
                                 require />
                         </div>
-                        <button type="submit" class="" value="Log in">Submit</button>
+                        <button type="submit" class="new-but" value="Log in">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()">Close</button>
+                    <button type="button" class="btn btn-dark new-but" data-dismiss="modal" (click)="hide()">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <!-- <div [style.display]="updateModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
+    <div [style.display]="updateModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
         aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog ">
             <div class="modal-content">
@@ -59,7 +55,7 @@
                     <h4 class="modal-title" id="myModalLabel">Update Category</h4>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="categoryForm" (ngSubmit)="onSubmitUpdate(categoryName.value)">
+                    <form [formGroup]="categoryForm" (ngSubmit)="onSubmitUpdate(categoryForm.value)">
                         <div class="form-group">
                             <label for="brand">Category</label>
                             <input type="text" formControlName="categoryName" class="form-control" placeholder="{{category}}"
@@ -74,6 +70,6 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     
 </div>

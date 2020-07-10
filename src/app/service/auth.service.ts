@@ -15,6 +15,7 @@ export class AuthService {
   // private isLoggedSubject: Subject<boolean>;
   // public isLogged: Observable<boolean>;
   public isLogged = new Subject();
+  public userPermLvl = new Subject();
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -22,50 +23,41 @@ export class AuthService {
     // this.isLoggedSubject = new Subject<boolean>(this.storage.get('access_token'));
     // this.isLogged = this.isLoggedSubject.asObservable();
     // this.checkLoggedIn(this.storage.get('access_token'));
-    this.checkUser();
+    this.checkIfLoggedIn();
+    // this.checkUserLvl();
   }
 
-  checkUser() {
+  checkIfLoggedIn() {
     if (this.storage.get('access_token')) {
       this.checkLoggedIn(true);
+      this.checkUser(this.storage.get('user'));
     } else {
       this.checkLoggedIn(false);
+      this.checkUser(null);
     }
   }
+
+  // checkUserLvl() {
+  //   // const user = this.storage.get('user');
+  //   // console.log(user);
+  //   if (this.storage.get('user')) {
+  //     console.log(this.storage.get('user'));
+  //     this.checkUser(this.storage.get('user'));
+  //     // console.log(this.userPermLvl);
+  //   } else {
+  //     this.checkUser(null);
+  //   }
+  // }
 
   checkLoggedIn(falsy) {
     // console.log(falsy);
     this.isLogged.next(falsy);
+    console.log(falsy);
   }
-
-  // // Sign up with email/password
-  // SignUp(email, password) {
-  //   return this.afAuth.createUserWithEmailAndPassword(email, password)
-  //     .then((result) => {
-  //       window.alert("You have been successfully registered!");
-  //       console.log(result.user)
-  //     }).catch((error) => {
-  //       window.alert(error.message)
-  //     })
-  // }
-
-  // // Sign in with email/password
-  // SignIn(email, password) {
-  //   return this.afAuth.signInWithEmailAndPassword(email, password)
-  //     .then((result) => {
-  //        this.router.navigate(['/home']);
-  //     }).catch((error) => {
-  //       window.alert(error.message)
-  //     })
-  // }
-
-  // public get currentLoggedValue(): boolean {
-  //   if (this.isLoggedSubject.value) {
-  //     return true;
-  //   }
-  //   console.log(this.isLogged);
-  //   return false;
-  // }
+  checkUser(user) {
+    console.log(user);
+    this.userPermLvl.next(user);
+  }
 
   loginAccount(userData): Observable<any> {
     // console.log(userData);
@@ -83,6 +75,7 @@ export class AuthService {
     this.storage.remove('access_token');
     // this.isLoggedSubject.next(false);
     // this.checkLoggedIn(false);
+    this.storage.remove('user');
     this.router.navigateByUrl('/home');
 
   }

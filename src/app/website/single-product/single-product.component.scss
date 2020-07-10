@@ -1,17 +1,44 @@
-.img{
+.img {
   vertical-align: middle;
   border-style: none;
   height: 439px;
   width: 100%;
+  object-fit: cover;
+  margin-top: 50px;
 }
 
-.image-popup{
-  height: 420px;
-  width: 400px;
+.image-popup {
+  height: 360px;
+  width: 340px;
 }
 
-.posi{
+.posi {
   position: relative;
   /* top: -120px; */
   bottom: 285px;
+}
+.btn {
+  background-color: darkseagreen;
+  border-radius: 25px;
+}
+
+// .stars :host::ng-deep form{
+//   float: right;
+//   padding: 10px;
+//   font-size: 14px !important;
+//   color: darkseagreen !important;
+//   margin: 15px;
+// }
+.fa {
+  color: black !important;
+}
+.product-details button{
+  border: 0 !important;
+}
+.star{
+  display: flex;
+}
+.p-value{
+  font-size: 18px;
+  color: darkseagreen;
 }

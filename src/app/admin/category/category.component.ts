@@ -12,15 +12,15 @@ import { CategoryService} from '../../service/category.service';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-  createModal:boolean;
-  id:any;
-  categoryForm=new FormGroup({
-    categoryName:new FormControl('',Validators.required),
-  })
-  submitted:boolean;
-  allCat:any;
-  category:any;
-  updateModal:boolean;
+  createModal: boolean;
+  id: any;
+  categoryForm = new FormGroup({
+    categoryName: new FormControl('', Validators.required),
+  });
+  submitted: boolean;
+  allCat: any;
+  category: any;
+  updateModal: boolean;
 
   constructor(
     private toastr: ToastrService,
@@ -35,18 +35,17 @@ export class CategoryComponent implements OnInit {
 
   show(){
     this.createModal = true;
+    this.categoryForm.reset();
   }
-  
-
   hide() {
-		this.createModal = false;
+    this.createModal = false;
   }
 
   brandUpdateModal(id, category){
     this.id = id;
     this.category = category;
     this.updateModal = true;
-
+    this.categoryForm.reset();
   }
 
   hideUpdate(){
@@ -62,14 +61,13 @@ export class CategoryComponent implements OnInit {
         this.toastr.success(`Category created successfully`)
         this.createModal = false;
         this.showCategories();
-      }
-      else{
+      } else {
         this.toastr.error(`Something went wrong`)
       }
     }, err =>{
       this.toastr.error(`${err.error.message}`);
       this.submitted = false;
-    })
+    });
   }
 
   showCategories(){
@@ -80,9 +78,8 @@ export class CategoryComponent implements OnInit {
       // console.log(res);
       this.allCat = res.data;
       // console.log(this.allCat)
-    })
-  };
-  
+    });
+  }
   async delCategory(id){
     // console.log(id);
     await this.catSrv.deleteCategory(id)
@@ -104,7 +101,7 @@ export class CategoryComponent implements OnInit {
     .pipe(first())
     .subscribe(res =>{
       // console.log(res)
-      if(res.success){
+      if(res===null){
         this.toastr.success(`Category updated successfully`)
         this.updateModal = false;
         this.showCategories();

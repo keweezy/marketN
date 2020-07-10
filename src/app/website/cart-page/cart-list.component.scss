@@ -1,0 +1,249 @@
+.ftco-cart button i {
+  color: #82ae46;
+}
+
+.ftco-cart .quantity-left-minus {
+  background: transparent;
+  padding: 16px 20px;
+}
+
+.ftco-cart .quantity-right-plus {
+  background: transparent;
+  padding: 16px 20px;
+}
+
+.ftco-cart button,
+.ftco-cart .form-control {
+  height: 54px !important;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  color: #000000;
+  padding: 0;
+  font-size: 14px;
+}
+
+.ftco-cart .form-group {
+  position: relative;
+}
+.ftco-cart .form-group .form-control {
+  padding-right: 40px;
+}
+.ftco-cart .form-group .icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  font-size: 14px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #82ae46;
+}
+.ftco-cart .form-group .icon span {
+  color: #82ae46;
+}
+@media (max-width: 767.98px) {
+  .ftco-cart .form-group .icon {
+    right: 10px;
+  }
+}
+.ftco-cart .form-group .select-wrap {
+  position: relative;
+}
+.ftco-cart .form-group .select-wrap select {
+  font-size: 14px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.ftco-cart .info label {
+  font-size: 13px;
+  color: #000000;
+}
+
+.cart-list {
+  overflow-x: scroll;
+}
+
+.table {
+  min-width: 1000px !important;
+  width: 100%;
+  text-align: center;
+  border: solid 1px transparent;
+  border-collapse: initial;
+}
+.table th {
+  font-weight: 500;
+}
+.table .thead-primary {
+  background: gray;
+  opacity: 0.4;
+}
+.table .thead-primary tr th {
+  padding: 20px 10px;
+  color: #fff !important;
+  border: 1px solid transparent !important;
+}
+.table tbody tr td {
+  text-align: center !important;
+  vertical-align: middle;
+  padding: 40px 10px;
+  border: 1px solid transparent !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+.table tbody tr td.product-remove a {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 4px 10px;
+  color: #000000;
+}
+.table tbody tr td.product-remove a:hover {
+  border: 1px solid #82ae46;
+  background: #82ae46;
+}
+.table tbody tr td.product-remove a:hover span {
+  color: #fff;
+}
+.table tbody tr td.quantity {
+  width: 20%;
+}
+.table tbody tr td.image-prod .img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+.table tbody tr td.product-name {
+  width: 30%;
+}
+.table tbody tr td.product-name h3 {
+  font-size: 16px;
+}
+.table tbody tr td.total,
+.table tbody tr td.price {
+  color: #000000;
+}
+
+.cart-wrap .btn-primary {
+  display: inline-block;
+}
+
+.cart-detail {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.cart-detail.cart-total {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.cart-detail .btn-primary {
+  display: block;
+  width: 100%;
+}
+
+h1 {
+  font-size: 8vw;
+  color: #fff;
+  line-height: 1.3;
+  font-weight: 400;
+  font-family: "Amatic SC", cursive;
+}
+
+h2 {
+  color: #000000;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  display: inline-block;
+  color: #fff;
+}
+img {
+  vertical-align: middle;
+  height: 600px;
+  border-style: none;
+  width: 100%;
+}
+.carousel-caption {
+  position: absolute;
+  right: 9%;
+  bottom: 160px;
+  left: 13%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+.hero-wrap.hero-bread {
+  padding: 10em 0;
+}
+.hero-wrap .slider-text .breadcrumbs {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 0;
+  z-index: 99;
+  font-weight: 300;
+}
+.hero-wrap .slider-text .breadcrumbs span {
+  color: white;
+}
+.mr-2,
+.mx-2 {
+  margin-right: 0.5rem !important;
+}
+
+.img-background {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.add-button {
+  position: absolute;
+  margin-top: 53px;
+  padding: 0 9px !important;
+  background-color: transparent;
+  font-size: 25px !important;
+  color: #81ae46 !important;
+}
+
+.btn-div {
+  display: flex;
+  position: absolute;
+  margin-left: 35px;
+  margin-top: 8px;
+}
+.input-number {
+  margin-top: 12px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1350px;
+  position: relative;
+  right: 133px;
+}
+// .image-prod {
+//   position: relative;
+// }
+a:not([href]) {
+  color: white;
+  text-decoration: none;
+}
+a:not([href]):hover {
+  color: #81ae46;
+  text-decoration: none;
+}
+.bread {
+  font-size: 60px !important;
+  line-height: 1;
+  font-weight: bolder;
+  display: grid;
+  position: relative;
+  left: 122px;
+  top: 30px;
+}
+button:focus {
+  outline: transparent;
+}

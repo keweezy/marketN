@@ -8,7 +8,7 @@ import { NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbCarouselConfig]
 })
 export class FruitPicsComponent implements OnInit {
-  images:any;
+  images: any;
   showNavigationArrows = false;
   showNavigationIndicators = false;
 

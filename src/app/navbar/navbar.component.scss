@@ -1,8 +1,20 @@
-.cart-img{
+.cart-img {
   height: 16px !important;
-    width: 25px !important;
-    position: relative !important;
-    margin-bottom: 3px !important;
+  width: 25px !important;
+  position: relative !important;
+  margin-bottom: 3px !important;
+}
+.form-posi {
+  position: absolute;
+  left: 23em;
+}
+.veg-posi {
+  position: relative;
+  right: 150px;
+}
+.ul-style {
+  position: relative;
+  right: 45px;
 }
 
 .navbar-brand {
@@ -33,23 +45,76 @@
   font-size: 11px;
 }
 
-.loginNew{
+.loginNew {
   padding: 2px;
-    background: #82ae46;
-    border-radius: 7px;
-    position: relative;
-    bottom: 2px;
+  background: #82ae46;
+  border-radius: 7px;
+  position: relative;
+  bottom: 2px;
 }
 
-.login-font{
-      margin-bottom: 4px;
-      border: solid;
-      padding: 0 10px;
-      background: darkseagreen;
-      height: 32px;
-      // width: 56px;
-      color: white;
-      text-align: center;
-      border-radius: 7px;
-      cursor: pointer;
-    }
+.login-font {
+  margin-bottom: 4px;
+  border: solid;
+  padding: 0 10px;
+  background: #82ae46;
+  height: 32px;
+  // width: 56px;
+  color: white;
+  text-align: center;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-right: 34px;
+}
+.nav-up {
+  position: fixed;
+  height: 53px;
+}
+
+.nav-menu_ {
+  position: absolute;
+  right: 25px;
+}
+.search-bar {
+  border-radius: 30px;
+  margin-right: 15px;
+  border: solid 1px #aeceae;
+  width: 315px;
+  padding-left: 10px;
+}
+.search-btn {
+  border-radius: 40px;
+  background: #cccccc;
+  padding: 0 10px 0 10px;
+  border: solid 1px #cccccc;
+  color: aliceblue;
+}
+::placeholder {
+  color: gray;
+  opacity: 0.5;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+.admin-btn {
+  position: relative;
+  right: 620px;
+  border-radius: 7px;
+  background: gray;
+  opacity: 0.8;
+  border: solid 1px gray;
+  color: white;
+}
+
+a:not([href]):hover {
+  background-color: transparent;
+  text-decoration: none;
+  color: darkseagreen;
+}
+.modal-btn {
+  border-radius: 8px;
+  border: solid 2px azure;
+  background: lavender;
+  padding: 0 8px 0 8px;
+}

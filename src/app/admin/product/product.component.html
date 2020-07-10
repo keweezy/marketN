@@ -1,256 +1,287 @@
-<app-pnavbar></app-pnavbar>
-
-
-
+<!-- <app-pnavbar></app-pnavbar> -->
 <app-sidenavbar></app-sidenavbar>
 <div class="container-dash">
-    <div class="form-posi">
-        <ul class="ul-form">
-            <li class="li"><a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#"
-                    (click)="show()" class="createBrand">Create Product</a></li>
-            <!-- <li class="li"><a href="">Update Brand</a></li>
-            <li class="li"><a href="">Delete Brand</a></li> -->
-        </ul>
-    </div>
+  <div class="form-posi">
+    <ul class="ul-form">
+      <li class="li">
+        <a
+          type="button"
+          class="btn btn-info btn-lg"
+          data-toggle="modal"
+          data-target="#"
+          (click)="show()"
+          class="createBrand"
+          >Create Product</a
+        >
+      </li>
+    </ul>
+  </div>
 
-    <h2 class="allBrands">All Products</h2>
-    <!-- <div class="disp-items">
-        <div *ngFor="let product of allProducts" class="listItems">
+  <h2 class="allBrands">All Products</h2>
+
+  <section class="ftco-section" style="margin-top: 50px;">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-md-6 col-lg-3 ftco-animate"
+          style="margin-top: 20px;"
+          *ngFor="let product of allProducts"
+        >
+          <div class="product noHover">
+            <a class="img-prod"
+              ><img
+                class="img-fluid"
+                src="{{ product.imageUrl }}"
+                alt="photo"
+              />
+              <span class="status">1%</span>
+              <div class="overlay"></div>
+            </a>
+            <div class="text py-3 pb-4 px-3 text-center">
+              <h3>
+                <a>{{ product.productName }}</a>
+              </h3>
+              <div class="d-flex">
+                <div class="pricing">
+                  <p class="price">
+                    <span class="price-sale">&#8358;{{ product.price }}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="button-class">
+            <button (click)="delProduct_(product._id)">Delete</button>
+            <button
+              (click)="brandUpdateModal(product._id, product.productName)"
+              data-dismiss="modal"
+            >
+              Update Product
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div
+    [style.display]="createModal ? 'block' : 'none'"
+    class="modal"
+    id="imagemodal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Create Brand</h4>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="registerForm">
             <div>
-                <h2>{{product.productName}}</h2>
-                <button (click)="delProduct(product.id)">Delete</button>
-                <button (click)= "brandUpdateModal(product._id,product.productName)">Update Product</button>
+              <label for="productName">Product Name</label>
+              <input
+                class="pro-form"
+                id="productName"
+                type="text"
+                formControlName="productName"
+                required
+              />
             </div>
+            <div>
+              <label for="imageUrl">Image Url</label>
+              <input
+                class="pro-form"
+                type="file"
+                accept=".png,.jpg"
+                (change)="handleChange($event)"
+                formControlName="imageUrl"
+              />
+            </div>
+            <div>
+              <label for="price">Price</label>
+              <input
+                class="pro-form"
+                type="number"
+                formControlName="price"
+                required
+              />
+            </div>
+            <div>
+              <label for="description">Description</label>
+              <input
+                class="pro-form"
+                type="text"
+                formControlName="description"
+                required
+              />
+            </div>
+            <div>
+              <label for="category">Category</label>
+              <select
+                class="pro-form"
+                name="category"
+                id="category"
+                formControlName="category"
+                required
+              >
+                <option
+                  *ngFor="let category of cateId"
+                  value="{{ category._id }}"
+                >
+                  {{ category.categoryName }}</option
+                >
+              </select>
+            </div>
+            <div>
+              <label for="brand">Brand</label>
+              <select
+                class="pro-form"
+                name="brand"
+                id="brand"
+                formControlName="brand"
+              >
+                <option value="{{ brand._id }}" *ngFor="let brand of brandId">{{
+                  brand.brandName
+                }}</option>
+              </select>
+            </div>
+            <div>
+              <label for="unit">Unit</label>
+              <select
+                class="pro-form"
+                name="unit"
+                id="unit"
+                formControlName="unit"
+              >
+                <option value="{{ unit._id }}" *ngFor="let unit of unitId">{{
+                  unit.unitName
+                }}</option>
+              </select>
+            </div>
+            <div></div>
 
+            <button class="new-but" (click)="onSubmit(registerForm.value)">
+              Save Product
+            </button>
+          </form>
         </div>
-    </div> -->
-
-    <section class="ftco-section" style="margin-top: 50px;">
-        <div class="container">
-            <!-- <div class="row justify-content-center">
-                <div class="col-md-10 mb-5 text-center">
-                    <ul class="product-category">
-                        <li><a href="#" class="active">All</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruits</a></li>
-                        <li><a href="#">Juice</a></li>
-                        <li><a href="#">Dried</a></li>
-                    </ul>
-                </div>
-            </div> -->
-            <div class="row">
-                <div class="col-md-6 col-lg-3 ftco-animate" style="margin-top: 20px;"
-                    *ngFor="let product of allProducts">
-                    <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid" src="{{product.imageUrl}}" alt="photo">
-                            <span class="status">1%</span>
-                            <div class="overlay"></div>
-                        </a>
-                        <div class="text py-3 pb-4 px-3 text-center">
-                            <h3><a href="#">{{product.productName}}</a></h3>
-                            <div class="d-flex">
-                                <div class="pricing">
-                                    <p class="price"><span class="mr-2 price-dc">$120.00</span><span
-                                            class="price-sale">${{product.price}}</span></p>
-                                </div>
-                            </div>
-
-                            <div class="bottom-area d-flex px-3">
-                                <div class="m-auto d-flex">
-                                    <!-- <a routerLink="/single/{{product._id}}"
-                                        class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                        <span><i class="ion-ios-menu"></i></span>
-                                    </a>
-                                    <a (click)=addToCart(product._id)
-                                        class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                        <span><img src="../../../assets/images/shopping-cart-black-shape.svg"
-                                                alt="alternative" class="cart-img"></span> -->
-                                        <!-- <i class="fas fa-shopping-cart"></i> -->
-                                    <!-- </a>
-                                    <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                        <span><i class="ion-ios-heart"></i></span>
-                                    </a> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-class">
-                        <button (click)="delProduct_(product._id)">Delete</button>
-                    <button (click)= "brandUpdateModal(product._id,product.productName)">Update Product</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col text-center">
-                    <div class="block-27">
-                        <!-- <ul> -->
-                        <!-- <li><a href="#">&lt;</a></li>
-                  <li class="active"><span>1</span></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li> -->
-                        <!-- <ngb-pagination [collectionSize]="products.length" [(page)]="page" [maxSize]="5" [rotate]="true"
-                    [ellipses]="false" [boundaryLinks]="true" ></ngb-pagination> -->
-                        <!-- <li>
-                    <ngb-pagination [collectionSize]="allProducts?.length" [(page)]="page" [maxSize]="5" [rotate]="true"
-                      [ellipses]="false" [boundaryLinks]="true" class="block-27"></ngb-pagination>
-                  </li> -->
-
-                        <!-- </ul> -->
-
-                        <!-- <table>
-                  <tr *ngFor="let product of allProducts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-                    <td>{{product.name}}</td>
-                  </tr>
-                </table>
-                <ngb-pagination [collectionSize]="items.length" [(page)]="page" [maxSize]="5" [rotate]="true"
-                  [ellipses]="false" [boundaryLinks]="true"></ngb-pagination> -->
-                    </div>
-                </div>
-            </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-dark new-but"
+            data-dismiss="modal"
+            (click)="hide()"
+          >
+            Close
+          </button>
         </div>
-    </section>
-
-    <div [style.display]="createModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
-        aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog ">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Create Brand</h4>
-                </div>
-                <div class="modal-body">
-                    <form [formGroup]="registerForm">
-                        <div>
-                            <label for="productName">Product Name</label>
-                            <input id="productName" type="text" formControlName="productName" required>
-                        </div>
-                        <div>
-                            <label for="imageUrl">Image Url</label>
-                            <!-- <input type="text" formControlName="imageUrl" required> -->
-                            <!-- <input type="file" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera"> -->
-                            <!-- <input type="file" adFileSelect [uploader]="uploader" multiple accept="image/*;capture=camera"> -->
-                            <!-- <button [disabled]="loading" (click)="upload()" class="btn btn-success mt-3">Upload</button> -->
-                            <input type="file" accept=".png,.jpg" (change)="handleChange($event)"
-                                formControlName="imageUrl" />
-                            <button (click)="uploadFile()">Upload</button>
-                        </div>
-                        <div>
-                            <label for="price">Price</label>
-                            <input type="number" formControlName="price" required>
-                        </div>
-                        <div>
-                            <label for="description">Description</label>
-                            <input type="text" formControlName="description" required>
-                        </div>
-                        <div>
-                            <label for="category">Category</label>
-                            <select name="category" id="category" formControlName="category" required>
-                                <option *ngFor="let category of cateId" value="{{category._id}}">
-                                    {{category.categoryName}}</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="brand">Brand</label>
-                            <select name="brand" id="brand" formControlName="brand">
-                                <option value="{{brand._id}}" *ngFor="let brand of brandId">{{brand.brandName}}</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="unit">Unit</label>
-                            <select name="unit" id="unit" formControlName="unit">
-                                <option value="{{unit._id}}" *ngFor="let unit of unitId">{{unit.unitName}}</option>
-                            </select>
-                        </div>
-                        <div>
-
-                        </div>
-
-                        <button class="new-but" (click)="onSubmit(registerForm.value)">Save
-                            Product</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()">Close</button>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-
-    <div [style.display]="updateModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
-        aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog ">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Update Product</h4>
-                </div>
-                <div class="modal-body">
-                    <!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmitUpdate(registerForm.value)">
-                        <div class="form-group">
-                            <label for="brand">Product</label>
-                            <input type="text" formControlName="productName" class="form-control" placeholder="{{product}}"
-                                require />
-                        </div>
-                        <button type="submit" class="" value="Log in">Save</button>
-                    </form> -->
-                    <form [formGroup]="updateRegisterForm" class="form-group">
-                        <div>
-                            <label for="productName">Product Name</label>
-                            <input id="productName" type="text" formControlName="productName">
-                        </div>
-                        <div>
-                            <label for="imageUrl">Image Url</label>
-                            <!-- <input type="text" formControlName="imageUrl" required> -->
-                            <!-- <input type="file" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera"> -->
-                            <!-- <input type="file" adFileSelect [uploader]="uploader" multiple accept="image/*;capture=camera"> -->
-                            <!-- <button [disabled]="loading" (click)="upload()" class="btn btn-success mt-3">Upload</button> -->
-                            <input type="file" accept=".png,.jpg" (change)="handleChange($event)"
-                                formControlName="imageUrl">
-                            <button (click)="uploadFile()">Upload</button>
-                        </div>
-                        <div>
-                            <label for="price">Price</label>
-                            <input type="number" formControlName="price" >
-                        </div>
-                        <div>
-                            <label for="description">Description</label>
-                            <input type="text" formControlName="description">
-                        </div>
-                        <div>
-                            <label for="category">Category</label>
-                            <select name="category" id="category" formControlName="category">
-                                <option *ngFor="let category of cateId" value="{{category._id}}">
-                                    {{category.categoryName}}</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="brand">Brand</label>
-                            <select name="brand" id="brand" formControlName="brand">
-                                <option value="{{brand._id}}" *ngFor="let brand of brandId">{{brand.brandName}}</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="unit">Unit</label>
-                            <select name="unit" id="unit" formControlName="unit">
-                                <option value="{{unit._id}}" *ngFor="let unit of unitId">{{unit.unitName}}</option>
-                            </select>
-                        </div>
-                        <div>
-
-                        </div>
-
-                        <button class="new-but" (click)="onSubmitUpdate(updateRegisterForm.value)">Save
-                            Product</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal"
-                        (click)="hideUpdate()">Close</button>
-
-                </div>
-            </div>
+  <div
+    [style.display]="updateModal ? 'block' : 'none'"
+    class="modal"
+    id="imagemodal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Update Product</h4>
         </div>
-    </div>
+        <div class="modal-body">
+          <form [formGroup]="registerForm" class="form-group" id="myForm">
+            <div>
+              <label for="productName">Product Name</label>
+              <input
+                class="pro-form"
+                type="text"
+                formControlName="productName"
+              />
+            </div>
+            <div>
+              <label for="imageUrl">Image Url</label>
+              <input
+                class="pro-form"
+                type="file"
+                accept=".png,.jpg"
+                (change)="handleChange($event)"
+                formControlName="imageUrl"
+              />
 
-</div>
+            </div>
+            <div>
+              <label for="price">Price</label>
+              <input class="pro-form" type="number" formControlName="price" />
+            </div>
+            <div>
+              <label for="description">Description</label>
+              <input
+                class="pro-form"
+                type="text"
+                formControlName="description"
+              />
+            </div>
+            <div>
+              <label for="category">Category</label>
+              <select
+                class="pro-form"
+                name="category"
+                formControlName="category"
+              >
+                <option
+                  *ngFor="let category of cateId"
+                  value="{{ category._id }}"
+                >
+                  {{ category.categoryName }}</option
+                >
+              </select>
+            </div>
+            <div>
+              <label for="brand">Brand</label>
+              <select class="pro-form" name="brand" formControlName="brand">
+                <option value="{{ brand._id }}" *ngFor="let brand of brandId">{{
+                  brand.brandName
+                }}</option>
+              </select>
+            </div>
+            <div>
+              <label for="unit">Unit</label>
+              <select class="pro-form" name="unit" formControlName="unit">
+                <option value="{{ unit._id }}" *ngFor="let unit of unitId">{{
+                  unit.unitName
+                }}</option>
+              </select>
+            </div>
+            <div></div>
+
+            <button
+              class="new-but"
+              (click)="doSubmitUpdate(registerForm.value)"
+            >
+              Save Product
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-dark new-but"
+            data-dismiss="modal"
+            (click)="hideUpdate()"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<!-- <app-footer></app-footer> -->

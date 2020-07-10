@@ -1,16 +1,12 @@
-
-<app-pnavbar></app-pnavbar>
-
-
-
+<!-- <app-pnavbar></app-pnavbar> -->
 <app-sidenavbar></app-sidenavbar>
 <div class="container-dash">
     <div class="form-posi">
         <ul class="ul-form">
             <li class="li"><a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#"
                     (click)="show()" class="createBrand">Create Unit</a></li>
-            <!-- <li class="li"><a href="">Update Brand</a></li> -->
-            <!-- <li class="li"><a href="">Delete Brand</a></li> -->
+            <!-- <li class="li"><a >Update Brand</a></li> -->
+            <!-- <li class="li"><a >Delete Brand</a></li> -->
         </ul>
     </div>
 
@@ -41,11 +37,11 @@
                             <input type="text" formControlName="unitName" class="form-control" placeholder="Unit name"
                                 require />
                         </div>
-                        <button type="submit" class="" value="Log in">Submit</button>
+                        <button type="submit" class="new-but" value="Log in">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()">Close</button>
+                    <button type="button" class="btn btn-dark new-but" data-dismiss="modal" (click)="hide()">Close</button>
 
                 </div>
             </div>

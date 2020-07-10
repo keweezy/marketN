@@ -40,6 +40,7 @@ export class DashboardComponent implements OnInit {
 
   show() {
     this.createModal = true;
+    this.brandForm.reset();
   }
 
 
@@ -52,7 +53,7 @@ export class DashboardComponent implements OnInit {
     this.brand = brand;
     // console.log(this.brand);
     this.updateModal = true;
-    
+    this.brandForm.reset();
   }
 
   hideUpdate() {
