@@ -69,7 +69,6 @@ import { FormControl } from '@angular/forms';
         this.fb.control(control.quantity)
       )
     );
-    console.log(group.controls);
     return group;
   }
 

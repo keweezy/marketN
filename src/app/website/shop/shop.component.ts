@@ -86,7 +86,6 @@ export class ShopComponent implements OnInit {
 
   doThis() {
     this.productService.tempSearchedData.subscribe((item) => {
-      console.log('kjflnfjnfs');
       this.allProducts = [];
       this.allProducts = item;
     });
@@ -106,7 +105,6 @@ export class ShopComponent implements OnInit {
     return this.allProducts;
   }
   getProduct() {
-    console.log(this.allProducts);
     return this.allProducts;
   }
   addToCart(id) {
@@ -115,7 +113,6 @@ export class ShopComponent implements OnInit {
     return this.cartService.addToCart(id);
   }
   search(): void {
-    console.log(this.query);
     if (this.query) {
       this.productService.search(this.query).subscribe(
         (data) => {

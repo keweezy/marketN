@@ -48,7 +48,6 @@ export class NavbarComponent implements OnInit {
   ) {
     this.cartService.userPermLvl.subscribe((permLvl) => {
       this.userPermLvl = permLvl;
-      console.log(this.userPermLvl.permissionLevel);
     });
   }
 
@@ -57,11 +56,9 @@ export class NavbarComponent implements OnInit {
     this.cartService.isLoggedIn.subscribe((_isLoggedIn) => {
       // console.log('here???');
       this.isLoggedIn = _isLoggedIn;
-      console.log(this.isLoggedIn);
     });
     this.cartService.userPermLvl.subscribe((user) => {
       this.userPermLvl = user;
-      console.log(this.userPermLvl);
     });
     // this.getUserlvl();
     this.cartService.cartLength.subscribe((totalvalue) => {
@@ -98,8 +95,6 @@ export class NavbarComponent implements OnInit {
   getUserlvl() {
     this.cartService.userPermLvl.subscribe((permLvl) => {
       this.userPermLvl = permLvl;
-      console.log(this.userPermLvl);
-      console.log('here 2');
     });
   }
   // onSubmit() {
@@ -177,7 +172,6 @@ export class NavbarComponent implements OnInit {
   }
 
   search(query) {
-    console.log(query);
     if (!query) {
       return;
     }

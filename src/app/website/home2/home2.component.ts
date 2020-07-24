@@ -121,7 +121,7 @@ export class Home2Component implements OnInit {
       .getCategoryId(id)
       .pipe(first())
       .subscribe((res) => {
-        console.log(res);
+        // console.log(res);
       });
   }
 

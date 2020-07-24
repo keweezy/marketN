@@ -134,7 +134,6 @@ export class CartService {
     if (this.storage.get('access_token')) {
       this.sendLoginStatus(true);
       this.sendUserLvl(this.storage.get('user'));
-      console.log('here');
     } else {
       this.sendLoginStatus(false);
       this.sendUserLvl(null);
@@ -178,11 +177,11 @@ export class CartService {
   }
 
   sendLoginStatus(falsy) {
-    console.log(falsy);
+    // console.log(falsy);
     this.isLoggedIn.next(falsy);
   }
   sendUserLvl(stat) {
-    console.log(stat);
+    // console.log(stat);
     this.userPermLvl.next(stat);
   }
 

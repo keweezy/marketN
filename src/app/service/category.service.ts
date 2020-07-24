@@ -53,7 +53,6 @@ export class CategoryService {
     return this.http.post(environment.base_uri + `categories`, {categoryName}, httpOptions)
     .pipe(
       map(res => {
-        console.log(res);
         return res;
       })
     )
@@ -89,7 +88,6 @@ export class CategoryService {
     return this.http.patch(environment.base_uri + `categories/${id}`, {categoryName}, httpOptions)
     .pipe(
       map(res => {
-        console.log(res);
         return res;
       })
     )
@@ -107,7 +105,6 @@ export class CategoryService {
     return this.http.get(environment.base_uri + `categories/${id}`, httpOptions)
     .pipe(
       map(res => {
-        console.log(res);
         return res;
       })
     )
