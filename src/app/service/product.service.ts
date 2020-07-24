@@ -183,7 +183,6 @@ export class ProductService {
           results.push(product);
         }
       });
-      console.log(results);
       this.searchedData.next(results);
       // this.tempSearchedData = results;
       return results;

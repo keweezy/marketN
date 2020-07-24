@@ -26,7 +26,7 @@ export class ContactComponent implements OnInit {
   }
 
   clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`);
+    // console.log(`clicked the marker: ${label || index}`);
   }
 
   // mapClicked($event: MouseEvent) {
@@ -38,7 +38,7 @@ export class ContactComponent implements OnInit {
   // }
 
   markerDragEnd(m: Marker, $event: MouseEvent) {
-    console.log('dragEnd', m, $event);
+    // console.log('dragEnd', m, $event);
   }
 }
 

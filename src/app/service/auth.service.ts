@@ -52,10 +52,8 @@ export class AuthService {
   checkLoggedIn(falsy) {
     // console.log(falsy);
     this.isLogged.next(falsy);
-    console.log(falsy);
   }
   checkUser(user) {
-    console.log(user);
     this.userPermLvl.next(user);
   }
 

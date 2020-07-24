@@ -247,3 +247,7 @@ a:not([href]):hover {
 button:focus {
   outline: transparent;
 }
+textarea:focus,
+input:focus {
+  outline: none;
+}
