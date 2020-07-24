@@ -96,9 +96,6 @@ export class ShopComponent implements OnInit {
       .getProductAll()
       .pipe(first())
       .subscribe((res) => {
-        // console.log('nana');
-        console.log(res.data);
-        // console.log(res);
         this.allProducts = res.data;
         this.allProducts.map((product) => {});
       });
