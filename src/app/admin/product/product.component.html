@@ -46,6 +46,7 @@
                   <p class="price">
                     <span class="price-sale">&#8358;{{ product.price }}</span>
                   </p>
+                  <h3 class="category-name">Category: {{product?.category.categoryName}}</h3>
                 </div>
               </div>
             </div>
@@ -215,7 +216,6 @@
                 (change)="handleChange($event)"
                 formControlName="imageUrl"
               />
-
             </div>
             <div>
               <label for="price">Price</label>
@@ -283,5 +283,5 @@
       </div>
     </div>
   </div>
-</div> 
+</div>
 <!-- <app-footer></app-footer> -->
