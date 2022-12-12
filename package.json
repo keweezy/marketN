@@ -31,7 +31,7 @@
     "angularfire2": "^5.4.2",
     "bootstrap": "^4.4.1",
     "cloudinary-core": "^2.8.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^7.15.1",
     "font-awesome": "^4.7.0",
     "jw-angular-pagination": "^1.1.0",
